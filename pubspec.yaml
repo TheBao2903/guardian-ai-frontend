@@ -1,0 +1,67 @@
+name: guardian_ai
+description: Guardian AI - Personal Safety & Emergency Mobile Application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
+  # State Management & Dependency Injection
+  flutter_riverpod: ^2.5.1
+
+  # Networking & Realtime
+  dio: ^5.4.3+1
+  web_socket_channel: ^3.0.0
+
+  # Secure Storage
+  flutter_secure_storage: ^9.2.2
+
+  # Environment Config
+  flutter_dotenv: ^5.2.1
+
+  # Routing
+  go_router: ^14.2.0
+
+  # Hardware, Emergency Actions & Audio
+  audioplayers: ^6.0.0
+  torch_light: ^1.1.0
+  url_launcher: ^6.3.0
+  geolocator: ^12.0.0
+  device_info_plus: ^10.1.0
+  shared_preferences: ^2.5.6
+
+  # Audio Recording & Permissions (for emergency detection)
+  record: ^5.1.2
+  permission_handler: ^11.3.1
+  tflite_flutter: ^0.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - .env
+    - assets/icons/
+    - assets/images/
+    - assets/sounds/
+    - assets/models/
+
+  fonts:
+    - family: NotoSans
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/fonts/NotoSans-Bold.ttf
+          weight: 700

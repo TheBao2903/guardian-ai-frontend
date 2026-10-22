@@ -1,0 +1,626 @@
+{
+  "@@locale": "vi",
+  "cancel": "Hủy bỏ",
+  "confirm": "Xác nhận",
+  "save": "Lưu lại",
+  "retry": "Thử lại",
+  "delete": "Xóa",
+  "close": "Đóng",
+  "continueAction": "Tiếp tục",
+  "back": "Quay lại",
+  "edit": "Chỉnh sửa",
+  "navHome": "Trang chủ",
+  "navSos": "SOS",
+  "navSafetyCheck": "Hẹn giờ",
+  "navContacts": "Người thân",
+  "navProfile": "Cá nhân",
+  "homeGreeting": "Guardian AI",
+  "homeStatusSafe": "Bạn đang an toàn",
+  "homeStatusSafeDesc": "Hệ thống giám sát an toàn đang hoạt động",
+  "homeStatusWarning": "Cần chú ý",
+  "homeStatusEmergency": "ĐANG BÁO ĐỘNG KHẨN CẤP",
+  "homeQuickActions": "Công cụ an toàn nhanh",
+  "homeSirenAction": "Còi hú",
+  "homeStrobeAction": "Đèn chớp",
+  "homeCallPoliceAction": "Gọi 113",
+  "homeSosHoldHint": "Nhấn giữ 3 giây để kích hoạt SOS",
+  "sosTitle": "SOS Khẩn cấp",
+  "sosActivate": "KÍCH HOẠT SOS",
+  "sosActiveTitle": "SOS ĐANG HOẠT ĐỘNG",
+  "sosActiveSubtitle": "Đang gửi tọa độ trực tiếp và cảnh báo người thân",
+  "sosStop": "DỪNG SOS",
+  "sosCallingHelp": "Đang liên hệ cứu hộ khẩn cấp...",
+  "sosSharingLocation": "Đang chia sẻ vị trí thời gian thực",
+  "sosStopConfirmTitle": "Dừng báo động SOS?",
+  "sosStopConfirmDesc": "Bạn có chắc chắn muốn dừng báo động không? Người thân sẽ nhận được thông báo rằng bạn đã an toàn.",
+  "sosEnterPinTitle": "Nhập mã PIN để dừng SOS",
+  "sosEnterPinDesc": "Nhập mã PIN 4 số của bạn để xác nhận hủy báo động",
+  "sosIncorrectPin": "Mã PIN không đúng. Vui lòng thử lại.",
+  "safetyCheckTitle": "Hẹn giờ An toàn",
+  "safetyCheckSubtitle": "Đặt hẹn giờ và xác nhận an toàn trước khi hết hạn. Nếu quá giờ, SOS sẽ tự động kích hoạt.",
+  "safetyCheckStart": "Bắt đầu hẹn giờ",
+  "safetyCheckSafeConfirm": "Tôi an toàn",
+  "safetyCheckExpiringSoon": "Sắp hết thời gian xác nhận",
+  "safetyCheckMissedAlert": "Quá hạn xác nhận - Đã kích hoạt SOS",
+  "safetyCheckRemainingTime": "Thời gian còn lại",
+  "safetyCheckMinutesRemaining": "Còn {minutes} phút",
+  "safetyCheckTemplatesTitle": "Mẫu hẹn giờ nhanh",
+  "customDuration": "Tùy chỉnh",
+  "customMinutesPrompt": "Nhập số phút",
+  "contactsTitle": "Vòng tròn Khẩn cấp",
+  "contactsSubtitle": "Tối đa 10 người thân nhận cảnh báo tức thời qua App & Telegram",
+  "contactsAdd": "Thêm người thân",
+  "contactsConfirmed": "Đã xác nhận",
+  "contactsPending": "Chờ kết nối Telegram",
+  "contactsLimitReached": "Đã đạt giới hạn tối đa 10 người thân",
+  "contactsRemoveConfirm": "Xóa liên hệ này khỏi vòng tròn khẩn cấp?",
+  "profileTitle": "Hồ sơ & Cài đặt",
+  "medicalProfileTitle": "Hồ sơ Y tế",
+  "settingsLanguage": "Ngôn ngữ",
+  "settingsLanguageVi": "Tiếng Việt",
+  "settingsLanguageEn": "English",
+  "settingsDarkMode": "Chế độ tối",
+  "settingsSystemTheme": "Theo hệ thống",
+  "settingsLogout": "Đăng xuất",
+  "errorGeneric": "Đã xảy ra lỗi. Vui lòng thử lại.",
+  "errorNetwork": "Không có kết nối mạng. Vui lòng kiểm tra lại.",
+  "errorLocationUnavailable": "Không thể xác định vị trí GPS của bạn.",
+  "errorPermissionRequired": "Ứng dụng cần được cấp quyền để thực hiện hành động này.",
+  "errorTryAgain": "Thử lại",
+  "profileLoading": "Đang tải thông tin...",
+  "profilePersonalTab": "Cá nhân",
+  "profileMedicalTab": "Y tế",
+  "profileSettingsTab": "Cài đặt",
+  "phoneNumber": "Số điện thoại",
+  "notUpdated": "Chưa cập nhật",
+  "profileTelegramPersonal": "Telegram Chat ID (Cá nhân)",
+  "profileTelegramUnlinked": "Chưa liên kết ID",
+  "profileEditPersonal": "Chỉnh sửa thông tin cá nhân",
+  "profileTestTelegramTitle": "Kiểm tra kết nối Telegram Bot",
+  "profileTestTelegramDescription": "Gửi thử thông báo cảnh báo mẫu để xác nhận bot Telegram hoạt động tốt, sẵn sàng nhận thông báo khi có sự cố khẩn cấp.",
+  "profileTelegramBot": "🤖 Bot nhận cảnh báo: @GuardianAINotiBot",
+  "profileTelegramSetupOne": "1. Mở bot @GuardianAINotiBot bấm START (gõ /start) rồi gửi tin nhắn \"hello\" để kích hoạt.\n",
+  "profileTelegramSetupTwo": "2. Dùng bot @userinfobot để lấy số Chat ID của bạn và người thân.",
+  "profileTestTelegramAction": "🔔 Kiểm tra gửi thông báo Telegram",
+  "medicalLockedTitle": "Hồ sơ y tế được khóa bảo mật",
+  "medicalLockedDescription": "Dữ liệu y tế là thông tin cá nhân nhạy cảm theo Nghị định 13/2023/NĐ-CP. Để bảo vệ quyền riêng tư, bạn cần nhập mã PIN 4 số của tài khoản để xem và sửa đổi.",
+  "medicalUnlockAction": "🔓 Mở khóa bằng mã PIN 4 số",
+  "medicalInitialHint": "Khi bạn chưa lưu thông tin y tế, mục này sẽ mở tự do. Sau khi lưu, hệ thống tự động khóa bảo vệ.",
+  "medicalLockNow": "Khóa lại ngay",
+  "medicalLockedSuccess": "Đã khóa bảo vệ hồ sơ y tế",
+  "editInformation": "Chỉnh sửa",
+  "enterInformation": "Nhập thông tin",
+  "medicalBloodType": "Nhóm máu",
+  "medicalAllergies": "Tiền sử dị ứng",
+  "medicalNotes": "Ghi chú y tế & Bệnh nền",
+  "medicalSosHint": "Thông tin y tế này được đính kèm vào tin nhắn SOS gửi người thân và cứu hộ khi kích hoạt khẩn cấp.",
+  "settingsSafePinTitle": "Mã PIN 4 số hủy báo động SOS",
+  "settingsSafePinSet": "Đã cài đặt mã PIN bảo mật (4 số)",
+  "notConfigured": "Chưa cài đặt",
+  "settingsChangePin": "Đổi PIN",
+  "settingsDuressPinTitle": "Mã PIN Cưỡng bức (Duress Code)",
+  "settingsDuressPinSet": "Đã kích hoạt mã bí mật (4 số)",
+  "notEnabled": "Chưa kích hoạt",
+  "settingsChangeCode": "Đổi mã",
+  "settingsDuressDescription": "Khi bị kẻ cướp/bắt cóc ép tắt SOS, hãy nhập mã này. Ứng dụng sẽ tắt còi hú giả vờ an toàn, nhưng ngầm gửi tin nhắn tối khẩn kèm GPS tới Telegram người thân!",
+  "settingsPasswordTitle": "Mật khẩu đăng nhập",
+  "settingsPasswordSet": "Đã cài đặt mật khẩu bảo mật",
+  "changeAction": "Đổi",
+  "settingsAppearance": "Giao diện ứng dụng",
+  "settingsLight": "Sáng (Mặc định)",
+  "settingsDark": "Tối",
+  "settingsLogoutAccount": "Đăng xuất tài khoản",
+  "fullName": "Họ và tên",
+  "fullNameExample": "Nguyễn Văn A",
+  "telegramNumericId": "Telegram Chat ID (Dãy số)",
+  "telegramIdExample": "Ví dụ: 628392102",
+  "telegramIdHint": "💡 Lấy số ID qua bot Telegram @userinfobot.",
+  "saveChanges": "Lưu thay đổi",
+  "nameRequired": "Họ tên không được để trống",
+  "profileUpdateSuccess": "Đã cập nhật thông tin thành công",
+  "profileUpdateFailed": "Cập nhật thất bại. Vui lòng thử lại",
+  "telegramTestOptions": "Tùy chọn kiểm tra gửi thông báo Telegram",
+  "telegramTestChoose": "Chọn đối tượng bạn muốn gửi tin nhắn cảnh báo thử nghiệm qua bot @GuardianAINotiBot:",
+  "telegramTestSelf": "🎯 Chỉ Telegram cá nhân của tôi",
+  "telegramNotConfigured": "Chưa cài đặt Telegram ID",
+  "telegramTestEveryone": "👥 Tôi + Tất cả người thân Guardian Circle",
+  "telegramTestContacts": "🛡️ Chỉ gửi tới Người thân (Không gửi vào Telegram của tôi)",
+  "telegramChecking": "Đang kiểm tra kết nối Telegram...",
+  "telegramSending": "Đang gửi tin nhắn qua bot @GuardianAINotiBot...",
+  "telegramRecipientHint": "💡 Người nhận chưa nhận được cần mở bot @GuardianAINotiBot bấm /start gửi \"hello\" trước.",
+  "telegramChatNotConfigured": "Chưa cài đặt Telegram Chat ID",
+  "sessionExpiredHint": "Lỗi phiên xác thực (Vui lòng đăng xuất và đăng nhập lại)",
+  "telegramNotStarted": "Chưa bấm /start với bot @GuardianAINotiBot",
+  "medicalEditTitle": "Cập nhật hồ sơ y tế khẩn cấp",
+  "medicalAllergiesExample": "Penicillin, Aspirin, phấn hoa...",
+  "medicalNotesExample": "Hen suyễn nhẹ, mang theo thuốc...",
+  "medicalSave": "Lưu hồ sơ y tế",
+  "medicalSaveSuccess": "Đã cập nhật hồ sơ y tế thành công",
+  "medicalUnlockTitle": "Mở khóa hồ sơ y tế",
+  "medicalEnterPin": "Nhập mã PIN 4 số an toàn của bạn để xác thực quyền xem dữ liệu y tế:",
+  "medicalUnlockedSuccess": "🔓 Đã mở khóa hồ sơ y tế thành công",
+  "pinVerifyUnavailable": "Không thể xác thực mã PIN",
+  "unlockAction": "Mở khóa",
+  "pinChangeTitle": "Đổi mã PIN 4 số hủy SOS",
+  "pinCurrentHint": "Để bảo mật, vui lòng xác thực bằng cách nhập mã PIN hiện tại:",
+  "pinCurrent": "Mã PIN hiện tại",
+  "pinNew": "Mã PIN mới",
+  "pinConfirmNew": "Xác nhận mã PIN mới",
+  "pinCurrentIncorrect": "Mã PIN hiện tại không chính xác",
+  "pinFourDigits": "Mã PIN phải đủ đúng 4 chữ số",
+  "pinConfirmationMismatch": "Mã PIN mới và xác nhận không khớp",
+  "pinMustDiffer": "Mã PIN mới phải khác mã PIN hiện tại",
+  "pinUpdateUnavailable": "Không thể cập nhật mã PIN lên máy chủ",
+  "pinUpdateSuccess": "Đã đổi mã PIN SOS thành công",
+  "pinSave": "Lưu PIN",
+  "duressChangeTitle": "Đổi Mã PIN Cưỡng bức",
+  "duressChangeDescription": "Khi nhập mã này lúc nguy cấp, còi sẽ tắt giả vờ an toàn nhưng hệ thống phát ngầm cảnh báo cứu trợ tới người thân.\n\n",
+  "duressCurrentHint": "Để bảo mật, vui lòng xác thực mã PIN cưỡng bức hiện tại:",
+  "duressCurrent": "Mã PIN cưỡng bức hiện tại",
+  "duressNew": "Mã PIN cưỡng bức mới",
+  "duressConfirmNew": "Xác nhận mã PIN cưỡng bức mới",
+  "duressCurrentIncorrect": "Mã PIN cưỡng bức hiện tại không chính xác",
+  "duressUpdateUnavailable": "Không thể cập nhật mã PIN cưỡng bức lên máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.",
+  "duressUpdateSuccess": "Đã cập nhật Mã PIN cưỡng bức mới",
+  "saveCode": "Lưu mã",
+  "passwordChangeTitle": "Đổi mật khẩu đăng nhập",
+  "passwordCurrentHint": "Để bảo mật, vui lòng nhập mật khẩu hiện tại trước khi đổi:",
+  "passwordCurrent": "Mật khẩu hiện tại",
+  "passwordNew": "Mật khẩu mới",
+  "passwordRequirements": "Tối thiểu 6 ký tự, có chữ + số",
+  "passwordConfirm": "Xác nhận mật khẩu mới",
+  "passwordRepeat": "Nhập lại mật khẩu mới",
+  "passwordCurrentRequired": "Vui lòng nhập mật khẩu hiện tại",
+  "passwordTooShort": "Mật khẩu mới phải có ít nhất 6 ký tự",
+  "passwordLettersDigits": "Mật khẩu mới phải có cả chữ cái và chữ số",
+  "passwordConfirmationMismatch": "Mật khẩu mới và xác nhận không khớp",
+  "passwordMustDiffer": "Mật khẩu mới phải khác mật khẩu hiện tại",
+  "passwordChange": "Đổi mật khẩu",
+  "logoutConfirmTitle": "Xác nhận đăng xuất",
+  "logoutConfirmDescription": "Bạn có chắc chắn muốn đăng xuất khỏi tài khoản Guardian AI trên thiết bị này?",
+  "mobileDevice": "Thiết bị di động",
+  "locationDeviceTitle": "Định vị Khẩn cấp & Thiết bị Tin cậy",
+  "locationAuthorized": "🟢 Đã ủy quyền GPS - Sẵn sàng SOS 1-chạm",
+  "locationNotAuthorized": "🟠 Chưa cấp quyền vị trí nền",
+  "locationDeviceLabel": "Thiết bị:",
+  "locationOsLabel": "Hệ điều hành:",
+  "locationLastKnown": "Vị trí kiểm tra gần nhất:",
+  "locationOpenMaps": "🗺️ Mở thử trên Google Maps",
+  "locationFinding": "Đang lấy tọa độ GPS vệ tinh...",
+  "locationUpdate": "🔄 Cập nhật vị trí & kiểm tra GPS",
+  "locationAuthorize": "⚡ Kích hoạt Định vị khẩn cấp (1-Chạm)",
+  "locationAuthorizeHint": "Ủy quyền 1 lần duy nhất để khi ấn SOS hệ thống tự động gửi GPS mà không cần hỏi lại.",
+  "locationUnavailableDescription": "Không thể lấy vị trí. Vui lòng bật định vị hoặc cho phép quyền Vị trí trên trình duyệt/cài đặt máy.",
+  "homeCountdownActive": "ĐANG ĐẾM NGƯỢC AN TOÀN",
+  "runningStatus": "Đang chạy",
+  "homeProtectionDescription": "Bạn đang trong hành trình bảo vệ. Nhấn để xem đồng hồ hoặc xác nhận an toàn.",
+  "homeViewCountdown": "Xem đếm ngược chi tiết",
+  "contactsEmptyTitle": "Chưa có người thân trong danh bạ",
+  "contactsEmptyDescription": "Hãy thêm ít nhất 1 người thân để được bảo vệ khi có sự cố.",
+  "contactsPriorityBadge": "#1 Ưu tiên gọi",
+  "contactsTestCall": "Gọi kiểm tra",
+  "contactsSetPriority": "Đặt ưu tiên gọi #1",
+  "contactsAddTitle": "Thêm người thân vào Guardian Circle",
+  "contactsFullName": "Họ và tên người thân",
+  "contactsNameExample": "Ví dụ: Bố, Mẹ, Bạn thân...",
+  "contactsTelegramLabel": "Telegram Chat ID (bắt buộc)",
+  "contactsTelegramSetupTitle": "Cách thiết lập nhận cảnh báo qua Telegram:",
+  "contactsTelegramSetupOne": "1. Người thân mở Telegram, tìm bot @GuardianAINotiBot (link: t.me/GuardianAINotiBot).\n",
+  "contactsTelegramSetupTwo": "2. Bấm START (hoặc gõ /start), rồi gửi 1 tin nhắn ví dụ \"hello\" là xong setup kết nối với bot.\n",
+  "contactsTelegramSetupThree": "3. Tìm bot @userinfobot trên Telegram để lấy dãy số User ID của người thân, rồi dán dãy số đó vào ô Chat ID ở trên.",
+  "contactsTelegramNumericHint": "💡 Lưu ý: Bot chỉ gửi được tin nhắn cảnh báo tới Chat ID số (không thể gửi qua @username).",
+  "contactRelationship": "Mối quan hệ",
+  "relationshipParent": "Bố / Mẹ",
+  "relationshipSpouse": "Vợ / Chồng",
+  "relationshipSibling": "Anh / Chị / Em",
+  "relationshipChild": "Con",
+  "relationshipFriend": "Bạn thân",
+  "relationshipColleague": "Đồng nghiệp",
+  "contactsOldPriorityHint": "Người ưu tiên cũ sẽ được chuyển xuống",
+  "contactsSave": "Lưu người thân",
+  "contactsNamePhoneRequired": "Vui lòng nhập họ tên và số điện thoại",
+  "contactsInvalidPhone": "Số điện thoại không hợp lệ! Vui lòng nhập số di động 10 chữ số bắt đầu bằng 0 (03, 05, 07, 08, 09).",
+  "contactsInvalidTelegram": "Vui lòng nhập Telegram Chat ID dạng số từ 6 đến 14 chữ số.",
+  "contactsDeleteTitle": "Xác nhận xóa",
+  "contactsPriorityMovedHint": "Người ưu tiên cũ sẽ được chuyển xuống vị trí thấp hơn.",
+  "contactsPriorityFailed": "Không thể đặt ưu tiên gọi",
+  "safetyExtendShort": "+15 Phút",
+  "safetyMicrophoneUnavailable": "Micro chưa hoạt động. Hẹn giờ an toàn vẫn đang chạy.",
+  "safetyExpiredDescription": "Đã hết giờ! Vui lòng xác nhận an toàn ngay",
+  "safetyMonitoring": "Đang theo dõi bảo vệ chủ động",
+  "safetyGracePeriod": "Thời gian ân hạn",
+  "safetyConfirmed": "Đã xác nhận an toàn thành công",
+  "safetyExtendAction": "+15 Phút gia hạn",
+  "safetyExtended": "Đã gia hạn thêm 15 phút",
+  "safetyCancelTitle": "Hủy đếm ngược",
+  "safetyCancelDescription": "Bạn có chắc chắn muốn kết thúc phiên đếm ngược này không?",
+  "safetyCancelConfirm": "Đồng ý dừng",
+  "safetyChooseScenario": "1. Chọn kịch bản di chuyển",
+  "safetyChooseDuration": "2. Chọn thời lượng đếm ngược",
+  "safetyDurationLabel": "Thời lượng:",
+  "safetyNotesLabel": "3. Ghi chú điểm đến / Người đồng hành (Tùy chọn)",
+  "safetyNotesExample": "Ví dụ: Đang đi xe biển số 29A-12345, dự kiến về nhà lúc 22:30...",
+  "minutesUnit": "phút",
+  "sirenRunning": "Đang hú...",
+  "strobeRunning": "Đang chớp...",
+  "policeCallTitle": "Gọi Cảnh sát 113?",
+  "policeCallDescription": "Bạn sắp thực hiện cuộc gọi khẩn cấp tới đầu số 113 của Cảnh sát.",
+  "callNow": "Gọi ngay",
+  "languageSaveError": "Không thể lưu ngôn ngữ. Vui lòng thử lại.",
+  "cancelShort": "Hủy",
+  "contactsAlertDescription": "Khi bạn kích hoạt SOS hoặc quá giờ Safety Check, hệ thống gửi cảnh báo tới Telegram người thân và kèm vị trí nếu có.",
+  "relationshipOther": "Người quen",
+  "sosNoRecipients": "Chưa có người thân đủ điều kiện nhận Telegram",
+  "sosSessionActive": "SOS đang hoạt động",
+  "sosLocationMissing": "Chưa có vị trí GPS",
+  "sirenOffAction": "Tắt còi",
+  "sirenOnAction": "Bật còi",
+  "strobeOffAction": "Tắt đèn chớp",
+  "strobeOnAction": "Bật đèn chớp",
+  "emergencyContacts": "Liên hệ khẩn cấp",
+  "policeCallEmoji": "🚔 Gọi Cảnh Sát 113",
+  "policeCallPhone": "📞 Gọi Cảnh Sát 113",
+  "primaryContact": "Liên hệ ưu tiên #1",
+  "callNowUpper": "GỌI NGAY",
+  "messageNowUpper": "NHẮN TIN",
+  "callAction": "Gọi",
+  "messageAction": "Nhắn tin",
+  "sosCurrentPinHint": "Nhập mã PIN 4 số hiện tại để dừng SOS",
+  "sosPinRequired": "Vui lòng nhập đủ 4 chữ số PIN",
+  "sosStoppedSuccess": "Đã dừng báo động SOS thành công. Người thân đã nhận tin an toàn.",
+  "sosConfirmationTitle": "Xác nhận SOS",
+  "screamDetected": "Phát hiện tiếng la hét!",
+  "sosCancelling": "Đang xác nhận hủy…",
+  "sosSending": "Đang gửi SOS tới người thân…",
+  "sosSendFailed": "Gửi SOS chưa thành công",
+  "sosWaitingServer": "Đang chờ máy chủ xử lý SOS…",
+  "sosFalseAlarm": "BÁO ĐỘNG GIẢ",
+  "sosActivateNow": "KÍCH HOẠT SOS NGAY",
+  "sosRetry": "GỬI LẠI SOS",
+  "sosPreparingTitle": "CHUẨN BỊ PHÁT TÍN HIỆU SOS",
+  "sosCountdownDescription": "Hệ thống sẽ gửi vị trí khẩn cấp tới 10 người thân Telegram sau:",
+  "sosCancelNow": "HỦY BÁO ĐỘNG NGAY",
+  "sosCancelledSuccess": "Đã hủy kích hoạt SOS thành công",
+  "loginTagline": "Nền tảng bảo vệ an toàn cá nhân chủ động",
+  "loginTitle": "Đăng nhập tài khoản",
+  "passwordLabel": "Mật khẩu",
+  "loginAction": "Đăng nhập",
+  "loginRequired": "Vui lòng nhập đầy đủ Email và Mật khẩu",
+  "forgotPasswordLink": "🔑 Quên mật khẩu?",
+  "loginNoAccount": "Chưa có tài khoản? ",
+  "registerLink": "Đăng ký ngay",
+  "forgotPasswordTitle": "Quên mật khẩu",
+  "forgotPasswordDescription": "Nhập email tài khoản của bạn. Chúng tôi sẽ gửi liên kết khôi phục mật khẩu tới email này:",
+  "accountEmail": "Email tài khoản",
+  "forgotPasswordSpamHint": "💡 Vui lòng kiểm tra cả hộp thư Spam nếu không thấy email.",
+  "emailRequired": "Vui lòng nhập email",
+  "emailInvalid": "Email không hợp lệ",
+  "sendRequest": "Gửi yêu cầu",
+  "registerTitle": "Tạo tài khoản mới",
+  "registerSubtitle": "Đăng ký bảo vệ an toàn",
+  "registerName": "Họ và tên của bạn *",
+  "registerEmail": "Địa chỉ Email *",
+  "registerPassword": "Mật khẩu *",
+  "registerPasswordHint": "Tối thiểu 6 ký tự",
+  "registerPasswordConfirm": "Xác nhận mật khẩu *",
+  "registerPasswordRepeat": "Nhập lại mật khẩu vừa tạo",
+  "registerConsent": "Tôi đồng ý với Cam kết bảo mật dữ liệu vị trí và ghi âm theo Nghị định 13/2023/NĐ-CP của Guardian AI.",
+  "registerAction": "Hoàn tất đăng ký",
+  "registerRequired": "Vui lòng điền đầy đủ các thông tin bắt buộc (*)",
+  "registerInvalidEmail": "Địa chỉ email không đúng định dạng",
+  "registerPasswordShort": "Mật khẩu phải có tối thiểu 6 ký tự",
+  "registerPasswordMismatch": "Mật khẩu xác nhận không khớp. Vui lòng kiểm tra lại!",
+  "registerConsentRequired": "Vui lòng đồng ý với cam kết bảo mật theo Nghị định 13",
+  "registerSuccess": "Đăng ký tài khoản thành công!",
+  "registerFailed": "Đăng ký thất bại",
+  "registerHaveAccount": "Đã có tài khoản? ",
+  "loginLink": "Đăng nhập ngay",
+  "contactsAddCount": "Thêm người thân ({count}/10)",
+  "@contactsAddCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contactsCount": "{count}/10 Người",
+  "@contactsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeContactsReady": "{count}/10 Người thân sẵn sàng nhận tin Telegram",
+  "@homeContactsReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeSessionRemaining": "Phiên \"{name}\": Còn {remaining}",
+  "@homeSessionRemaining": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "remaining": {
+        "type": "String"
+      }
+    }
+  },
+  "minutesDuration": "{minutes} phút",
+  "@minutesDuration": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "customMinutesDuration": "Tùy chỉnh: {minutes}m",
+  "@customMinutesDuration": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "safetyStarted": "Đã kích hoạt hẹn giờ {minutes} phút thành công",
+  "@safetyStarted": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "safetyExtensionCount": "Đã gia hạn: {count}/{total} lần",
+  "@safetyExtensionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contactsAdded": "Đã thêm {name} vào Guardian Circle",
+  "@contactsAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsAddedPriority": "Đã thêm {name} vào Guardian Circle và đặt làm ưu tiên gọi #1",
+  "@contactsAddedPriority": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsRemoveNamed": "Bạn có chắc muốn xóa {name} khỏi danh bạ người thân không?",
+  "@contactsRemoveNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsPriorityNamed": "Bạn muốn đặt {name} làm người được gọi đầu tiên khi có sự cố khẩn cấp?",
+  "@contactsPriorityNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsPrioritySuccess": "Đã đặt {name} làm người ưu tiên gọi #1",
+  "@contactsPrioritySuccess": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileSelf": "Bạn ({name})",
+  "@profileSelf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileTestEveryoneDetail": "Gửi đồng thời tới bạn và {count} người thân đã có ID",
+  "@profileTestEveryoneDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestContactsDetail": "Kiểm tra gửi báo động thử nghiệm tới {count} người thân trong danh bạ",
+  "@profileTestContactsDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestResults": "Kết quả: {sent}/{total} người nhận thành công",
+  "@profileTestResults": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestMessage": "🔔 [Guardian AI - Test] Đây là tin nhắn kiểm tra kết nối cảnh báo an toàn từ {name}. Hệ thống hoạt động tốt!",
+  "@profileTestMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileTestDelivered": "Đã nhận tin nhắn (ID: {id})",
+  "@profileTestDelivered": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "locationNetworkLabel": "{coordinates} (Định vị IP Mạng)",
+  "@locationNetworkLabel": {
+    "placeholders": {
+      "coordinates": {
+        "type": "String"
+      }
+    }
+  },
+  "locationGpsLabel": "{coordinates} (GPS Sai số ~{accuracy}m)",
+  "@locationGpsLabel": {
+    "placeholders": {
+      "coordinates": {
+        "type": "String"
+      },
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "locationNetworkSuccess": "Đã kích hoạt định vị qua mạng & đăng ký {device} thành công!",
+  "@locationNetworkSuccess": {
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "locationGpsSuccess": "Đã kích hoạt định vị GPS & đăng ký {device} thành công!",
+  "@locationGpsSuccess": {
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "sosAutoActivateSeconds": "Tự động kích hoạt sau {seconds}s",
+  "@sosAutoActivateSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDetectionType": "Loại: {type} ({confidence}%)",
+  "@sosDetectionType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      },
+      "confidence": {
+        "type": "String"
+      }
+    }
+  },
+  "sosDeliveredCount": "Telegram đã nhận {sent}/{total} thông báo",
+  "@sosDeliveredCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDeliveryFailedCount": "Đã gửi {sent}/{total}; {failed} lỗi gửi",
+  "@sosDeliveryFailedCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDeliveryPendingCount": "Đang gửi tới người thân: {sent}/{total}",
+  "@sosDeliveryPendingCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "templateWalkHome": "Đi bộ về nhà",
+  "templateWalkHomeDescription": "Bảo vệ khi đi bộ qua đoạn đường vắng hoặc trời tối.",
+  "templateLateRide": "Đi xe / Taxi / Đặt xe",
+  "templateLateRideDescription": "Theo dõi chuyến đi xe công nghệ, taxi ban đêm.",
+  "templateExercise": "Chạy bộ / Thể thao",
+  "templateExerciseDescription": "Theo dõi an toàn khi chạy bộ, tập thể dục ngoài trời.",
+  "templateMeetup": "Gặp gỡ / Hẹn hò",
+  "templateMeetupDescription": "Hẹn gặp đối tác, người mới quen hoặc nơi xa lạ.",
+  "templateOvertime": "Làm việc / Trực đêm",
+  "templateOvertimeDescription": "Làm việc tăng ca muộn tại văn phòng hoặc công tác.",
+  "templateCommute": "Di chuyển bằng xe",
+  "templateCommuteDescription": "Theo dõi chuyến đi xe taxi, xe ôm công nghệ hoặc phương tiện công cộng.",
+  "templateOutdoor": "Khám phá ngoài trời",
+  "templateOutdoorDescription": "Dành cho các hoạt động leo núi, dã ngoại, chạy bộ đường dài.",
+  "templateAlone": "Kiểm tra an toàn",
+  "templateAloneDescription": "Kiểm tra định kỳ khi ở nhà một mình hoặc làm việc đêm tại văn phòng.",
+  "templateStranger": "Cuộc gặp an toàn",
+  "templateStrangerDescription": "Bảo vệ khi gặp gỡ người mới quen, giao dịch mua bán hoặc phỏng vấn.",
+  "profileSignedIn": "Đã đăng nhập",
+  "deviceWindowsPc": "Máy tính Windows",
+  "deviceAppleMac": "Máy tính Apple Mac",
+  "deviceAndroid": "Thiết bị Android",
+  "deviceWebBrowser": "Trình duyệt Web",
+  "deviceGuardian": "Thiết bị Guardian AI",
+  "deviceUser": "Thiết bị người dùng",
+  "contactsActions": "Thao tác với người thân",
+  "contactsEditTitle": "Chỉnh sửa thông tin người thân",
+  "contactsInvalidName": "Tên người thân phải có từ 2 đến 100 ký tự.",
+  "contactsTelegramRequiredHint": "Cần nhập Chat ID để người thân nhận cảnh báo qua Telegram.",
+  "contactsUpdated": "Đã cập nhật thông tin người thân",
+  "contactsUpdateFailed": "Không thể lưu thay đổi. Vui lòng thử lại.",
+  "scenarioCreate": "Tạo kịch bản",
+  "scenarioEdit": "Chỉnh sửa kịch bản",
+  "scenarioName": "Tên kịch bản",
+  "scenarioDescription": "Mô tả (không bắt buộc)",
+  "scenarioDuration": "Thời lượng mặc định (phút)",
+  "scenarioGrace": "Thời gian chờ xác nhận an toàn (giây)",
+  "scenarioGraceHint": "Thời gian để xác nhận an toàn sau khi đồng hồ đếm ngược kết thúc.",
+  "scenarioPresets": "Năm mốc thời gian gợi ý (phút)",
+  "scenarioPresetsHint": "Ngăn cách bằng dấu phẩy, ví dụ: 15, 30, 45, 60, 90.",
+  "scenarioInvalidName": "Tên kịch bản phải có từ 2 đến 100 ký tự.",
+  "scenarioInvalidDescription": "Mô tả không được vượt quá 300 ký tự.",
+  "scenarioInvalidDuration": "Nhập số nguyên từ 1 đến 1440 phút.",
+  "scenarioInvalidGrace": "Nhập số nguyên từ 30 đến 1800 giây.",
+  "scenarioInvalidPresets": "Nhập năm số nguyên khác nhau từ 1 đến 1440, ngăn cách bằng dấu phẩy.",
+  "scenarioSaveFailed": "Không thể lưu kịch bản. Vui lòng thử lại.",
+  "scenarioSaved": "Đã lưu kịch bản",
+  "scenarioDeleted": "Đã xóa kịch bản",
+  "scenarioDeleteTitle": "Xóa kịch bản?",
+  "scenarioDeleteConfirm": "Kịch bản này sẽ được xóa khỏi danh sách của bạn. Kịch bản của tài khoản khác được giữ nguyên.",
+  "scenarioEmpty": "Chưa có kịch bản. Hãy tạo kịch bản để bắt đầu Safety Check.",
+  "scenarioActions": "Thao tác với kịch bản",
+  "registerNamePrompt": "Nhập họ và tên",
+  "registerEmailPrompt": "Nhập địa chỉ email",
+  "registerPhoneOptional": "Số điện thoại (không bắt buộc)",
+  "authShowPassword": "Hiện mật khẩu",
+  "authHidePassword": "Ẩn mật khẩu"
+}

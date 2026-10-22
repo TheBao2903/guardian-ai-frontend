@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- ======================================================= -->
+	<!-- PERMISSION DESCRIPTIONS -->
+	<!-- ======================================================= -->
+
+	<!-- Microphone - Required for audio recording and detection -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Guardian AI cần quyền truy cập microphone để phát hiện tiếng hét, tiếng khóc cầu cứu và các âm thanh nguy hiểm nhằm bảo vệ bạn 24/7.</string>
+
+	<!-- Location - Required for SOS emergency alerts -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Guardian AI cần vị trí của bạn để gửi cảnh báo khẩn cấp tới người thân khi phát hiện nguy hiểm.</string>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Guardian AI cần vị trí nền để gửi cảnh báo khẩn cấp ngay cả khi app đang chạy nền.</string>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Guardian AI cần vị trí nền để gửi cảnh báo khẩn cấp ngay cả khi app đang chạy nền.</string>
+
+	<!-- Camera - For flashlight/torch feature during SOS -->
+	<key>NSCameraUsageDescription</key>
+	<string>Guardian AI cần quyền camera để bật đèn flash làm tín hiệu báo động khi kích hoạt SOS.</string>
+
+	<!-- Notifications - For SOS alerts and reminders -->
+	<key>NSUserNotificationUsageDescription</key>
+	<string>Guardian AI sẽ gửi thông báo để cảnh báo bạn về các sự kiện khẩn cấp.</string>
+
+	<!-- Background Modes -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<!-- Audio recording in background -->
+		<string>audio</string>
+		<!-- Location updates -->
+		<string>location</string>
+		<!-- Background fetch -->
+		<string>fetch</string>
+		<!-- Remote notifications -->
+		<string>remote-notification</string>
+	</array>
+
+	<!-- ======================================================= -->
+	<!-- SPECIFIC FEATURE FLAGS -->
+	<!-- ======================================================= -->
+
+	<!-- Enable background audio -->
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.guardianai.audioMonitoring</string>
+		<string>com.guardianai.sosAlert</string>
+	</array>
+
+	<!-- Allow microphone for VOIP/push-to-talk (if needed) -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Guardian AI cần microphone để ghi âm và phát hiện âm thanh nguy hiểm.</string>
+
+	<!-- Privacy -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+
+	<!-- App Transport Security for local HTTP -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+
+</dict>
+</plist>

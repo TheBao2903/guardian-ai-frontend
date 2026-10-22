@@ -1,0 +1,676 @@
+{
+  "@@locale": "en",
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Generic cancel button label"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Generic confirm button label"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Generic save button label"
+  },
+  "retry": "Try again",
+  "@retry": {
+    "description": "Generic retry button label"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Generic delete button label"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Generic close button label"
+  },
+  "continueAction": "Continue",
+  "@continueAction": {
+    "description": "Generic continue button label"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Generic back button label"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom nav Home label"
+  },
+  "navSos": "SOS",
+  "@navSos": {
+    "description": "Bottom nav SOS label"
+  },
+  "navSafetyCheck": "Safety Check",
+  "@navSafetyCheck": {
+    "description": "Bottom nav Safety Check label"
+  },
+  "navContacts": "Contacts",
+  "@navContacts": {
+    "description": "Bottom nav Contacts label"
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "Bottom nav Profile label"
+  },
+  "homeGreeting": "Guardian AI",
+  "homeStatusSafe": "You are safe",
+  "homeStatusSafeDesc": "Active monitoring enabled and ready",
+  "homeStatusWarning": "Attention needed",
+  "homeStatusEmergency": "EMERGENCY ACTIVE",
+  "homeQuickActions": "Quick Safety Tools",
+  "homeSirenAction": "Siren Alarm",
+  "homeStrobeAction": "Strobe Light",
+  "homeCallPoliceAction": "Call 113",
+  "homeSosHoldHint": "Hold for 3 seconds to trigger SOS",
+  "sosTitle": "Emergency SOS",
+  "sosActivate": "ACTIVATE SOS",
+  "sosActiveTitle": "SOS IS ACTIVE",
+  "sosActiveSubtitle": "Sending live location and alerting emergency contacts",
+  "sosStop": "STOP SOS",
+  "sosCallingHelp": "Contacting emergency services...",
+  "sosSharingLocation": "Live GPS sharing is active",
+  "sosStopConfirmTitle": "Stop Emergency SOS?",
+  "sosStopConfirmDesc": "Are you sure you want to stop the SOS alert? Your emergency contacts will be notified that you are safe.",
+  "sosEnterPinTitle": "Enter PIN to cancel SOS",
+  "sosEnterPinDesc": "Enter your 4-digit PIN to stop the alert",
+  "sosIncorrectPin": "Incorrect PIN. Please try again.",
+  "safetyCheckTitle": "Safety Check",
+  "safetyCheckSubtitle": "Set a timer and check in before it expires. If missed, SOS will automatically trigger.",
+  "safetyCheckStart": "Start Timer",
+  "safetyCheckSafeConfirm": "I'm Safe",
+  "safetyCheckExpiringSoon": "Check-in Expiring Soon",
+  "safetyCheckMissedAlert": "Check-in Missed - SOS Triggered",
+  "safetyCheckRemainingTime": "Remaining Time",
+  "safetyCheckMinutesRemaining": "{minutes} minutes remaining",
+  "@safetyCheckMinutesRemaining": {
+    "description": "Remaining minutes for safety check countdown",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "safetyCheckTemplatesTitle": "Quick Templates",
+  "customDuration": "Custom",
+  "customMinutesPrompt": "Enter minutes",
+  "contactsTitle": "Guardian Circle",
+  "contactsSubtitle": "Up to 10 trusted contacts who receive instant alerts via App & Telegram",
+  "contactsAdd": "Add Contact",
+  "contactsConfirmed": "Confirmed",
+  "contactsPending": "Pending Telegram link",
+  "contactsLimitReached": "Maximum 10 emergency contacts reached",
+  "contactsRemoveConfirm": "Remove this contact from your emergency circle?",
+  "profileTitle": "Profile & Settings",
+  "medicalProfileTitle": "Medical Profile",
+  "settingsLanguage": "Language",
+  "settingsLanguageVi": "Vietnamese",
+  "settingsLanguageEn": "English",
+  "settingsDarkMode": "Dark Mode",
+  "settingsSystemTheme": "System Theme",
+  "settingsLogout": "Sign Out",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorNetwork": "Network unavailable. Please check your connection.",
+  "errorLocationUnavailable": "Unable to determine your GPS location.",
+  "errorPermissionRequired": "Permission required to perform this action.",
+  "errorTryAgain": "Try Again",
+  "profileLoading": "Loading your profile...",
+  "profilePersonalTab": "Personal",
+  "profileMedicalTab": "Medical",
+  "profileSettingsTab": "Settings",
+  "phoneNumber": "Phone number",
+  "notUpdated": "Not provided",
+  "profileTelegramPersonal": "Personal Telegram Chat ID",
+  "profileTelegramUnlinked": "Not linked",
+  "profileEditPersonal": "Edit personal information",
+  "profileTestTelegramTitle": "Test Telegram connection",
+  "profileTestTelegramDescription": "Send a test alert to check that the Telegram bot can deliver emergency notifications.",
+  "profileTelegramBot": "🤖 Alert bot: @GuardianAINotiBot",
+  "profileTelegramSetupOne": "1. Open @GuardianAINotiBot, tap START (or type /start), then send \"hello\" to connect.\n",
+  "profileTelegramSetupTwo": "2. Use @userinfobot to find your and your contacts' numeric Chat IDs.",
+  "profileTestTelegramAction": "🔔 Send a Telegram test alert",
+  "medicalLockedTitle": "Medical profile is locked",
+  "medicalLockedDescription": "Medical information is sensitive personal data under Vietnam's Decree 13/2023/ND-CP. Enter your account's 4-digit PIN to view or edit it.",
+  "medicalUnlockAction": "🔓 Unlock with your 4-digit PIN",
+  "medicalInitialHint": "You can enter your initial medical information without unlocking. After saving, this section is automatically locked.",
+  "medicalLockNow": "Lock now",
+  "medicalLockedSuccess": "Medical profile locked",
+  "editInformation": "Edit",
+  "enterInformation": "Add information",
+  "medicalBloodType": "Blood type",
+  "medicalAllergies": "Allergies",
+  "medicalNotes": "Medical notes and conditions",
+  "medicalSosHint": "This medical information is included in SOS messages to your emergency contacts and responders.",
+  "settingsSafePinTitle": "4-digit PIN to stop SOS",
+  "settingsSafePinSet": "Security PIN configured (4 digits)",
+  "notConfigured": "Not configured",
+  "settingsChangePin": "Change PIN",
+  "settingsDuressPinTitle": "Duress PIN",
+  "settingsDuressPinSet": "Duress PIN enabled (4 digits)",
+  "notEnabled": "Not enabled",
+  "settingsChangeCode": "Change code",
+  "settingsDuressDescription": "If someone forces you to stop SOS, enter this code. The app silences the alarm while discreetly alerting your emergency contacts through Telegram.",
+  "settingsPasswordTitle": "Account password",
+  "settingsPasswordSet": "Account password configured",
+  "changeAction": "Change",
+  "settingsAppearance": "Appearance",
+  "settingsLight": "Light (default)",
+  "settingsDark": "Dark",
+  "settingsLogoutAccount": "Sign out",
+  "fullName": "Full name",
+  "fullNameExample": "Your full name",
+  "telegramNumericId": "Telegram Chat ID (numeric)",
+  "telegramIdExample": "Example: 628392102",
+  "telegramIdHint": "💡 Get your numeric ID from @userinfobot on Telegram.",
+  "saveChanges": "Save changes",
+  "nameRequired": "Please enter your full name",
+  "profileUpdateSuccess": "Profile updated successfully",
+  "profileUpdateFailed": "Update failed. Please try again",
+  "telegramTestOptions": "Telegram test recipients",
+  "telegramTestChoose": "Choose who receives a test alert from @GuardianAINotiBot:",
+  "telegramTestSelf": "🎯 Only my Telegram account",
+  "telegramNotConfigured": "Telegram ID not configured",
+  "telegramTestEveryone": "👥 Me and all Guardian Circle contacts",
+  "telegramTestContacts": "🛡️ Only my emergency contacts",
+  "telegramChecking": "Checking Telegram connection...",
+  "telegramSending": "Sending through @GuardianAINotiBot...",
+  "telegramRecipientHint": "💡 Recipients must first open @GuardianAINotiBot, tap /start and send \"hello\".",
+  "telegramChatNotConfigured": "Telegram Chat ID not configured",
+  "sessionExpiredHint": "Session error. Please sign out and sign in again",
+  "telegramNotStarted": "Start a conversation with @GuardianAINotiBot first",
+  "medicalEditTitle": "Edit emergency medical profile",
+  "medicalAllergiesExample": "Penicillin, aspirin, pollen...",
+  "medicalNotesExample": "Asthma, medication you carry...",
+  "medicalSave": "Save medical profile",
+  "medicalSaveSuccess": "Medical profile updated successfully",
+  "medicalUnlockTitle": "Unlock medical profile",
+  "medicalEnterPin": "Enter your current 4-digit safety PIN to view your medical information:",
+  "medicalUnlockedSuccess": "🔓 Medical profile unlocked",
+  "pinVerifyUnavailable": "Unable to verify PIN",
+  "unlockAction": "Unlock",
+  "pinChangeTitle": "Change your 4-digit SOS PIN",
+  "pinCurrentHint": "For your security, enter your current PIN:",
+  "pinCurrent": "Current PIN",
+  "pinNew": "New PIN",
+  "pinConfirmNew": "Confirm new PIN",
+  "pinCurrentIncorrect": "Current PIN is incorrect",
+  "pinFourDigits": "PIN must contain exactly 4 digits",
+  "pinConfirmationMismatch": "New PIN and confirmation do not match",
+  "pinMustDiffer": "New PIN must differ from your current PIN",
+  "pinUpdateUnavailable": "Unable to update PIN on the server",
+  "pinUpdateSuccess": "SOS PIN changed successfully",
+  "pinSave": "Save PIN",
+  "duressChangeTitle": "Change duress PIN",
+  "duressChangeDescription": "This code silences the alarm while discreetly sending an emergency alert to your contacts.\n\n",
+  "duressCurrentHint": "For your security, enter your current duress PIN:",
+  "duressCurrent": "Current duress PIN",
+  "duressNew": "New duress PIN",
+  "duressConfirmNew": "Confirm new duress PIN",
+  "duressCurrentIncorrect": "Current duress PIN is incorrect",
+  "duressUpdateUnavailable": "Unable to update duress PIN. Check your connection and try again.",
+  "duressUpdateSuccess": "Duress PIN changed successfully",
+  "saveCode": "Save code",
+  "passwordChangeTitle": "Change account password",
+  "passwordCurrentHint": "For your security, enter your current password:",
+  "passwordCurrent": "Current password",
+  "passwordNew": "New password",
+  "passwordRequirements": "At least 6 characters, including letters and digits",
+  "passwordConfirm": "Confirm new password",
+  "passwordRepeat": "Re-enter new password",
+  "passwordCurrentRequired": "Please enter your current password",
+  "passwordTooShort": "New password must contain at least 6 characters",
+  "passwordLettersDigits": "New password must include both letters and digits",
+  "passwordConfirmationMismatch": "New password and confirmation do not match",
+  "passwordMustDiffer": "New password must differ from your current password",
+  "passwordChange": "Change password",
+  "logoutConfirmTitle": "Confirm sign out",
+  "logoutConfirmDescription": "Sign out of Guardian AI on this device?",
+  "mobileDevice": "Mobile device",
+  "locationDeviceTitle": "Emergency location and trusted device",
+  "locationAuthorized": "🟢 Location authorized — ready for one-tap SOS",
+  "locationNotAuthorized": "🟠 Background location not authorized",
+  "locationDeviceLabel": "Device:",
+  "locationOsLabel": "Operating system:",
+  "locationLastKnown": "Last checked location:",
+  "locationOpenMaps": "🗺️ Open in Google Maps",
+  "locationFinding": "Getting your location...",
+  "locationUpdate": "🔄 Update and check location",
+  "locationAuthorize": "⚡ Authorize emergency location",
+  "locationAuthorizeHint": "Authorize location access so SOS can share your location without asking again.",
+  "locationUnavailableDescription": "Unable to get your location. Enable location services and allow access in your browser or device settings.",
+  "homeCountdownActive": "SAFETY COUNTDOWN ACTIVE",
+  "runningStatus": "Running",
+  "homeProtectionDescription": "Your safety timer is running. View the countdown or confirm you are safe.",
+  "homeViewCountdown": "View countdown",
+  "contactsEmptyTitle": "No emergency contacts yet",
+  "contactsEmptyDescription": "Add at least one trusted contact to receive emergency alerts.",
+  "contactsPriorityBadge": "#1 Priority contact",
+  "contactsTestCall": "Test call",
+  "contactsSetPriority": "Set as priority contact #1",
+  "contactsAddTitle": "Add a Guardian Circle contact",
+  "contactsFullName": "Contact name",
+  "contactsNameExample": "Example: parent, partner, friend...",
+  "contactsTelegramLabel": "Telegram Chat ID (required)",
+  "contactsTelegramSetupTitle": "How to receive Telegram alerts:",
+  "contactsTelegramSetupOne": "1. Ask your contact to open @GuardianAINotiBot on Telegram (t.me/GuardianAINotiBot).\n",
+  "contactsTelegramSetupTwo": "2. Tap START (or type /start), then send a message such as \"hello\" to connect.\n",
+  "contactsTelegramSetupThree": "3. Use @userinfobot to get your contact's numeric User ID and paste it into the Chat ID field above.",
+  "contactsTelegramNumericHint": "💡 The bot requires a numeric Chat ID; a Telegram @username will not work.",
+  "contactRelationship": "Relationship",
+  "relationshipParent": "Parent",
+  "relationshipSpouse": "Spouse",
+  "relationshipSibling": "Sibling",
+  "relationshipChild": "Child",
+  "relationshipFriend": "Friend",
+  "relationshipColleague": "Colleague",
+  "contactsOldPriorityHint": "The previous priority contact will move down",
+  "contactsSave": "Save contact",
+  "contactsNamePhoneRequired": "Please enter a name and phone number",
+  "contactsInvalidPhone": "Enter a valid 10-digit Vietnamese mobile number starting with 03, 05, 07, 08 or 09.",
+  "contactsInvalidTelegram": "Enter a numeric Telegram Chat ID with 6 to 14 digits.",
+  "contactsDeleteTitle": "Confirm removal",
+  "contactsPriorityMovedHint": "The previous priority contact will move to a lower position.",
+  "contactsPriorityFailed": "Unable to set priority contact",
+  "safetyExtendShort": "+15 min",
+  "safetyMicrophoneUnavailable": "Microphone unavailable. Your safety timer is still running.",
+  "safetyExpiredDescription": "Time is up. Please confirm you are safe",
+  "safetyMonitoring": "Active safety monitoring",
+  "safetyGracePeriod": "Grace period",
+  "safetyConfirmed": "You have checked in safely",
+  "safetyExtendAction": "Extend by 15 minutes",
+  "safetyExtended": "Extended by 15 minutes",
+  "safetyCancelTitle": "Cancel timer",
+  "safetyCancelDescription": "End this safety timer?",
+  "safetyCancelConfirm": "Stop timer",
+  "safetyChooseScenario": "1. Choose a scenario",
+  "safetyChooseDuration": "2. Choose a timer duration",
+  "safetyDurationLabel": "Duration:",
+  "safetyNotesLabel": "3. Destination or companion notes (optional)",
+  "safetyNotesExample": "Example: taxi plate 29A-12345, expected home by 22:30...",
+  "minutesUnit": "min",
+  "sirenRunning": "Siren on...",
+  "strobeRunning": "Strobe on...",
+  "policeCallTitle": "Call police on 113?",
+  "policeCallDescription": "You are about to call Vietnam's police emergency number, 113.",
+  "callNow": "Call now",
+  "languageSaveError": "Unable to save your language. Please try again.",
+  "cancelShort": "Cancel",
+  "contactsAlertDescription": "When SOS is activated or a Safety Check is missed, the app alerts your contacts through @GuardianAINotiBot and includes your location when available.",
+  "relationshipOther": "Other",
+  "sosNoRecipients": "No contacts are ready to receive Telegram alerts",
+  "sosSessionActive": "SOS is active",
+  "sosLocationMissing": "Location unavailable",
+  "sirenOffAction": "Turn siren off",
+  "sirenOnAction": "Turn siren on",
+  "strobeOffAction": "Turn strobe off",
+  "strobeOnAction": "Turn strobe on",
+  "emergencyContacts": "Emergency contacts",
+  "policeCallEmoji": "🚔 Call police 113",
+  "policeCallPhone": "📞 Call police 113",
+  "primaryContact": "Priority contact #1",
+  "callNowUpper": "CALL NOW",
+  "messageNowUpper": "SEND MESSAGE",
+  "callAction": "Call",
+  "messageAction": "Message",
+  "sosCurrentPinHint": "Enter your current 4-digit PIN to stop SOS",
+  "sosPinRequired": "Please enter all 4 PIN digits",
+  "sosStoppedSuccess": "SOS has stopped. Your contacts have been notified that you are safe.",
+  "sosConfirmationTitle": "Confirm SOS",
+  "screamDetected": "Screaming detected!",
+  "sosCancelling": "Confirming cancellation…",
+  "sosSending": "Sending SOS to your contacts…",
+  "sosSendFailed": "SOS has not been sent yet",
+  "sosWaitingServer": "Waiting for the server to process SOS…",
+  "sosFalseAlarm": "FALSE ALARM",
+  "sosActivateNow": "ACTIVATE SOS NOW",
+  "sosRetry": "RETRY SOS",
+  "sosPreparingTitle": "PREPARING TO SEND SOS",
+  "sosCountdownDescription": "Your emergency contacts will receive an SOS alert and your available location after:",
+  "sosCancelNow": "CANCEL ALERT NOW",
+  "sosCancelledSuccess": "SOS activation cancelled",
+  "loginTagline": "Proactive personal safety",
+  "loginTitle": "Sign in to your account",
+  "passwordLabel": "Password",
+  "loginAction": "Sign in",
+  "loginRequired": "Please enter your email and password",
+  "forgotPasswordLink": "🔑 Forgot password?",
+  "loginNoAccount": "Don't have an account? ",
+  "registerLink": "Create an account",
+  "forgotPasswordTitle": "Reset password",
+  "forgotPasswordDescription": "Enter your account email to receive a password reset link:",
+  "accountEmail": "Account email",
+  "forgotPasswordSpamHint": "💡 Check your spam folder if the email does not arrive.",
+  "emailRequired": "Please enter your email",
+  "emailInvalid": "Invalid email address",
+  "sendRequest": "Send request",
+  "registerTitle": "Create an account",
+  "registerSubtitle": "Start protecting your safety",
+  "registerName": "Full name *",
+  "registerEmail": "Email address *",
+  "registerPassword": "Password *",
+  "registerPasswordHint": "At least 6 characters",
+  "registerPasswordConfirm": "Confirm password *",
+  "registerPasswordRepeat": "Re-enter your password",
+  "registerConsent": "I agree to Guardian AI's location and audio data privacy commitment under Vietnam's Decree 13/2023/ND-CP.",
+  "registerAction": "Create account",
+  "registerRequired": "Please complete all required fields (*)",
+  "registerInvalidEmail": "Please enter a valid email address",
+  "registerPasswordShort": "Password must contain at least 6 characters",
+  "registerPasswordMismatch": "Passwords do not match. Please check them again",
+  "registerConsentRequired": "Please accept the data privacy commitment",
+  "registerSuccess": "Account created successfully!",
+  "registerFailed": "Registration failed",
+  "registerHaveAccount": "Already have an account? ",
+  "loginLink": "Sign in",
+  "contactsAddCount": "Add contact ({count}/10)",
+  "@contactsAddCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contactsCount": "{count}/10 contacts",
+  "@contactsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeContactsReady": "{count}/10 contacts ready for Telegram alerts",
+  "@homeContactsReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeSessionRemaining": "Session \"{name}\": {remaining} remaining",
+  "@homeSessionRemaining": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "remaining": {
+        "type": "String"
+      }
+    }
+  },
+  "minutesDuration": "{minutes} min",
+  "@minutesDuration": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "customMinutesDuration": "Custom: {minutes}m",
+  "@customMinutesDuration": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "safetyStarted": "Your {minutes}-minute safety timer has started",
+  "@safetyStarted": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "safetyExtensionCount": "Extensions used: {count}/{total}",
+  "@safetyExtensionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contactsAdded": "Added {name} to Guardian Circle",
+  "@contactsAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsAddedPriority": "Added {name} to Guardian Circle as priority contact #1",
+  "@contactsAddedPriority": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsRemoveNamed": "Remove {name} from your emergency contacts?",
+  "@contactsRemoveNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsPriorityNamed": "Call {name} first in an emergency?",
+  "@contactsPriorityNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "contactsPrioritySuccess": "{name} is now priority contact #1",
+  "@contactsPrioritySuccess": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileSelf": "You ({name})",
+  "@profileSelf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileTestEveryoneDetail": "Send to you and {count} contacts with Telegram IDs",
+  "@profileTestEveryoneDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestContactsDetail": "Send a test alert to {count} emergency contacts",
+  "@profileTestContactsDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestResults": "Result: {sent}/{total} recipients reached",
+  "@profileTestResults": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "profileTestMessage": "🔔 [Guardian AI - Test] This is a safety alert connection test from {name}. The connection is working.",
+  "@profileTestMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "profileTestDelivered": "Message delivered (ID: {id})",
+  "@profileTestDelivered": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "locationNetworkLabel": "{coordinates} (network location)",
+  "@locationNetworkLabel": {
+    "placeholders": {
+      "coordinates": {
+        "type": "String"
+      }
+    }
+  },
+  "locationGpsLabel": "{coordinates} (GPS accuracy ~{accuracy}m)",
+  "@locationGpsLabel": {
+    "placeholders": {
+      "coordinates": {
+        "type": "String"
+      },
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "locationNetworkSuccess": "Network location enabled and {device} registered!",
+  "@locationNetworkSuccess": {
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "locationGpsSuccess": "GPS enabled and {device} registered!",
+  "@locationGpsSuccess": {
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "sosAutoActivateSeconds": "Automatically activates in {seconds}s",
+  "@sosAutoActivateSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDetectionType": "Type: {type} ({confidence}%)",
+  "@sosDetectionType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      },
+      "confidence": {
+        "type": "String"
+      }
+    }
+  },
+  "sosDeliveredCount": "Telegram accepted {sent}/{total} alerts",
+  "@sosDeliveredCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDeliveryFailedCount": "Sent {sent}/{total}; {failed} failed",
+  "@sosDeliveryFailedCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
+      }
+    }
+  },
+  "sosDeliveryPendingCount": "Sending to contacts: {sent}/{total}",
+  "@sosDeliveryPendingCount": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "templateWalkHome": "Walking home",
+  "templateWalkHomeDescription": "Stay protected while walking on quiet streets or after dark.",
+  "templateLateRide": "Taxi or ride-hailing",
+  "templateLateRideDescription": "Monitor a taxi or ride-hailing trip after dark.",
+  "templateExercise": "Running or exercise",
+  "templateExerciseDescription": "Check in while running or exercising outdoors.",
+  "templateMeetup": "Meeting or date",
+  "templateMeetupDescription": "Stay safe when meeting someone new or visiting an unfamiliar place.",
+  "templateOvertime": "Late work or night shift",
+  "templateOvertimeDescription": "Check in while working late or travelling for work.",
+  "templateCommute": "Commute or transit",
+  "templateCommuteDescription": "Monitor a taxi, ride-hailing or public transit trip.",
+  "templateOutdoor": "Outdoor adventure",
+  "templateOutdoorDescription": "Stay safe while hiking, exploring or trail running.",
+  "templateAlone": "Alone at home",
+  "templateAloneDescription": "Check in while home alone or working at night.",
+  "templateStranger": "Meeting someone new",
+  "templateStrangerDescription": "Stay safe when meeting someone new, trading in person or interviewing.",
+  "profileSignedIn": "Signed in",
+  "deviceWindowsPc": "Windows PC",
+  "deviceAppleMac": "Apple Mac",
+  "deviceAndroid": "Android device",
+  "deviceWebBrowser": "Web browser",
+  "deviceGuardian": "Guardian AI device",
+  "deviceUser": "User device",
+  "contactsActions": "Contact actions",
+  "contactsEditTitle": "Edit emergency contact",
+  "contactsInvalidName": "Enter a name between 2 and 100 characters.",
+  "contactsTelegramRequiredHint": "A Chat ID is required for this contact to receive Telegram alerts.",
+  "contactsUpdated": "Contact updated successfully",
+  "contactsUpdateFailed": "Unable to save changes. Please try again.",
+  "scenarioCreate": "Create scenario",
+  "scenarioEdit": "Edit scenario",
+  "scenarioName": "Scenario name",
+  "scenarioDescription": "Description (optional)",
+  "scenarioDuration": "Default duration (minutes)",
+  "scenarioGrace": "Check-in grace period (seconds)",
+  "scenarioGraceHint": "Time to confirm you are safe after the timer ends.",
+  "scenarioPresets": "Five duration presets (minutes)",
+  "scenarioPresetsHint": "Separate values with commas, e.g. 15, 30, 45, 60, 90.",
+  "scenarioInvalidName": "Enter a name between 2 and 100 characters.",
+  "scenarioInvalidDescription": "Description must be at most 300 characters.",
+  "scenarioInvalidDuration": "Enter a whole number from 1 to 1440 minutes.",
+  "scenarioInvalidGrace": "Enter a whole number from 30 to 1800 seconds.",
+  "scenarioInvalidPresets": "Enter five different whole numbers from 1 to 1440, separated by commas.",
+  "scenarioSaveFailed": "Unable to save the scenario. Please try again.",
+  "scenarioSaved": "Scenario saved",
+  "scenarioDeleted": "Scenario deleted",
+  "scenarioDeleteTitle": "Delete scenario?",
+  "scenarioDeleteConfirm": "This scenario will be removed from your list. Other accounts keep their own scenarios.",
+  "scenarioEmpty": "No scenarios yet. Create one to start a Safety Check.",
+  "scenarioActions": "Scenario actions",
+  "registerNamePrompt": "Enter your full name",
+  "registerEmailPrompt": "Enter your email address",
+  "registerPhoneOptional": "Phone number (optional)",
+  "authShowPassword": "Show password",
+  "authHidePassword": "Hide password"
+}
