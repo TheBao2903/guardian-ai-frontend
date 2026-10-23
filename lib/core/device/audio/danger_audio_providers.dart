@@ -12,10 +12,12 @@ import '../../../features/sos/data/models/emergency_session_model.dart';
 import '../../../features/sos/presentation/providers/sos_controller.dart';
 import '../location/location_service.dart';
 import '../../network/api_client.dart';
+import '../../constants/storage_keys.dart';
 import 'danger_audio_manager.dart';
 import 'detection/audio_analysis_queue.dart';
 import 'detection/audio_analysis_input.dart';
 import 'detection/server_audio_alert.dart';
+import 'detection/alert_realtime_client.dart';
 import 'detection/yamnet_classifier.dart';
 import 'recording/audio_recorder_service.dart';
 import 'recording/microphone_permission_service.dart';
@@ -44,10 +46,13 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
   final AudioRecorderService _recorder;
   final AudioClassifier _classifier;
   final _queue = AudioAnalysisQueue();
-  Timer? _analysisTimer, _alertTimer;
+  Timer? _analysisTimer;
+  AlertRealtimeClient? _alertRealtime;
   Future<bool>? _starting;
   bool _analyzing = false, _synchronizing = false;
   int _generation = 0;
+  int _alertGeneration = 0;
+  int _alertRevision = 0;
   String _streamId = '';
   String? _safetyCheckId;
   DateTime? _lastChunk;
@@ -129,27 +134,40 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
   }
 
   void resumeAlerts() {
-    _alertTimer ??= Timer.periodic(
-        const Duration(seconds: 1), (_) => unawaited(syncCurrentAlert()));
-    unawaited(syncCurrentAlert());
+    _alertRealtime ??= AlertRealtimeClient(
+      url: AlertRealtimeClient.streamUrl(_api.dio.options.baseUrl),
+      readToken: () =>
+          _ref.read(secureStorageProvider).read(StorageKeys.accessToken),
+      synchronize: syncCurrentAlert,
+      onAlert: (data) async {
+        if (data != null && mounted) {
+          await _accept(ServerAudioAlert.fromJson(data));
+        }
+      },
+    );
+    _alertRealtime!.start();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed && _alertTimer != null) {
-      unawaited(syncCurrentAlert());
+    if (state == AppLifecycleState.resumed) {
+      _alertRealtime?.resume();
     }
   }
 
   Future<void> syncCurrentAlert() async {
     if (_synchronizing || !mounted) return;
     _synchronizing = true;
-    final generation = _generation;
+    final generation = _alertGeneration;
+    final revision = _alertRevision;
     try {
       final response = await _api.get<dynamic>('/detection/alerts/current',
           options: Options(receiveTimeout: const Duration(seconds: 5)));
       final data = _unwrap(response.data);
-      if (data is Map && mounted && generation == _generation) {
+      if (data is Map &&
+          mounted &&
+          generation == _alertGeneration &&
+          revision == _alertRevision) {
         await _accept(ServerAudioAlert.fromJson(data));
       }
     } catch (_) {
@@ -255,7 +273,8 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
 
   Future<void> _accept(ServerAudioAlert alert) async {
     if (!mounted) return;
-    final generation = _generation;
+    final revision = ++_alertRevision;
+    final generation = _alertGeneration;
     if (alert.status == 'PENDING' || alert.status == 'DISPATCHING') {
       _ref.read(dangerAlertProvider.notifier).synchronizeServerAlert(alert,
           onConfirm: () => _decide(alert.id, 'confirm'),
@@ -273,7 +292,11 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
           recipientsFailed: alert.failed);
       final response =
           await _api.get<dynamic>('/emergency/sessions/${alert.sessionId}');
-      if (!mounted || generation != _generation) return;
+      if (!mounted ||
+          generation != _alertGeneration ||
+          revision != _alertRevision) {
+        return;
+      }
       final session = EmergencySessionModel.fromJson(
               Map<String, dynamic>.from(_unwrap(response.data) as Map))
           .toEntity();
@@ -285,9 +308,9 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
   }
 
   Future<void> _decide(String id, String action) async {
-    final generation = _generation;
+    final generation = _alertGeneration;
     final response = await _api.post<dynamic>('/detection/alerts/$id/$action');
-    if (!mounted || generation != _generation) return;
+    if (!mounted || generation != _alertGeneration) return;
     final alert = ServerAudioAlert.fromJson(_unwrap(response.data) as Map);
     await _accept(alert);
     if (action == 'cancel' && alert.status != 'CANCELLED') {
@@ -307,8 +330,9 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
   }
 
   Future<void> endLocalSession() async {
-    _alertTimer?.cancel();
-    _alertTimer = null;
+    _alertGeneration++;
+    _alertRealtime?.stop();
+    _alertRealtime = null;
     await stopMonitoring();
     _latitude = null;
     _longitude = null;
@@ -337,9 +361,10 @@ class DangerAudioNotifier extends StateNotifier<DangerAudioState>
   @override
   void dispose() {
     _generation++;
+    _alertGeneration++;
     WidgetsBinding.instance.removeObserver(this);
     _analysisTimer?.cancel();
-    _alertTimer?.cancel();
+    _alertRealtime?.stop();
     _recorder.onAudioChunk = null;
     _queue.clear();
     unawaited(_recorder.dispose());
