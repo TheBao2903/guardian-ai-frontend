@@ -27,7 +27,11 @@ import 'sos_state.dart';
 
 final sosControllerProvider =
     StateNotifierProvider<SosController, SosState>((ref) {
-  return SosController(ref);
+  final controller = SosController(ref);
+  ref.listen(flashlightControllerProvider, (_, light) {
+    controller.syncFlashlight(light.isStrobeActive);
+  });
+  return controller;
 });
 
 class SosController extends StateNotifier<SosState> {
@@ -36,6 +40,12 @@ class SosController extends StateNotifier<SosState> {
   }
 
   final Ref _ref;
+
+  void syncFlashlight(bool active) {
+    if (mounted && state.isStrobeActive != active) {
+      state = state.copyWith(isStrobeActive: active);
+    }
+  }
 
   Future<void> _init() async {
     // 1. Đọc mã PIN an toàn và Mã PIN cưỡng bức đã lưu
@@ -173,6 +183,7 @@ class SosController extends StateNotifier<SosState> {
     if (!mounted) return;
     if (!session.isActive) {
       if (state.activeSession?.id == session.id) {
+        unawaited(_ref.read(flashlightControllerProvider).turnOff());
         state = state.copyWith(clearActiveSession: true);
       }
       return;
@@ -193,7 +204,7 @@ class SosController extends StateNotifier<SosState> {
         mounted && state.activeSession?.id == sessionId && state.isSosActive;
     try {
       final flashlight = _ref.read(flashlightControllerProvider);
-      await flashlight.startStrobe();
+      await flashlight.startStrobe(allowPermissionPrompt: false);
       if (!stillActive()) return;
       state = state.copyWith(isStrobeActive: flashlight.isStrobeActive);
     } catch (error) {
@@ -233,13 +244,8 @@ class SosController extends StateNotifier<SosState> {
   /// Bật / Tắt đèn chớp Strobe thủ công
   Future<void> toggleStrobe() async {
     final flashlight = _ref.read(flashlightControllerProvider);
-    if (state.isStrobeActive) {
-      await flashlight.turnOff();
-      state = state.copyWith(isStrobeActive: false);
-    } else {
-      await flashlight.startStrobe();
-      state = state.copyWith(isStrobeActive: true);
-    }
+    await flashlight.toggleStrobe();
+    if (mounted) syncFlashlight(flashlight.isStrobeActive);
   }
 
   /// Hủy SOS bằng Mã PIN 4 số (Bao gồm Safe PIN hoặc Duress PIN cưỡng bức)

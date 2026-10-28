@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../shared/widgets/flashlight_session_scope.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/app_localizations.dart';
 import 'localization/locale_controller.dart';
@@ -58,7 +59,8 @@ class GuardianApp extends ConsumerWidget {
           data: mediaQuery.copyWith(
             textScaler: TextScaler.linear(clampedScale),
           ),
-          child: child ?? const SizedBox.shrink(),
+          child:
+              FlashlightSessionScope(child: child ?? const SizedBox.shrink()),
         );
       },
     );

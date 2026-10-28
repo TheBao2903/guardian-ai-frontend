@@ -146,16 +146,33 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   // App Brand Logo & Title
                   Center(
                     child: Container(
-                      width: 72,
-                      height: 72,
+                      width: 80,
+                      height: 80,
                       decoration: BoxDecoration(
-                        color: colors.primaryLight,
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: colors.primary.withValues(alpha: 0.12),
+                            blurRadius: 16,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
                       ),
-                      child: Icon(
-                        Icons.shield_rounded,
-                        color: colors.primaryDark,
-                        size: 40,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/app_logo.webp',
+                          width: 80,
+                          height: 80,
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) => Container(
+                            color: colors.primaryLight,
+                            child: Icon(
+                              Icons.shield_rounded,
+                              color: colors.primaryDark,
+                              size: 40,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

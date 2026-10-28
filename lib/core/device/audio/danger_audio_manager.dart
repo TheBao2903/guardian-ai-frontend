@@ -2,6 +2,7 @@
 library;
 
 import 'recording/microphone_permission_service.dart';
+import 'detection/audio_monitoring_status.dart';
 
 /// Event types for danger detection
 enum DangerEventType {
@@ -115,6 +116,7 @@ class DangerDetectionResult {
 
 /// State for danger audio manager
 class DangerAudioState {
+  final AudioMonitoringStatus monitoring;
   final String? deliveryStatus;
   final int recipientsTotal, recipientsSent, recipientsFailed;
   final bool isEnabled;
@@ -130,6 +132,7 @@ class DangerAudioState {
   final Map<String, int> cooldowns;
 
   const DangerAudioState({
+    this.monitoring = const AudioMonitoringStatus(),
     this.deliveryStatus,
     this.recipientsTotal = 0,
     this.recipientsSent = 0,
@@ -148,6 +151,7 @@ class DangerAudioState {
   });
 
   DangerAudioState copyWith({
+    AudioMonitoringStatus? monitoring,
     String? deliveryStatus,
     int? recipientsTotal,
     int? recipientsSent,
@@ -165,6 +169,7 @@ class DangerAudioState {
     Map<String, int>? cooldowns,
   }) {
     return DangerAudioState(
+      monitoring: monitoring ?? this.monitoring,
       deliveryStatus: deliveryStatus ?? this.deliveryStatus,
       recipientsTotal: recipientsTotal ?? this.recipientsTotal,
       recipientsSent: recipientsSent ?? this.recipientsSent,

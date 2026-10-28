@@ -2497,6 +2497,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hide password'**
   String get authHidePassword;
+
+  /// No description provided for @flashlightSetupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera and flashlight'**
+  String get flashlightSetupTitle;
+
+  /// No description provided for @flashlightSetupDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow camera access to use the emergency flashlight. The camera opens only for checks or flashlight use; images are not recorded or sent.'**
+  String get flashlightSetupDescription;
+
+  /// No description provided for @flashlightGrantAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow camera'**
+  String get flashlightGrantAction;
+
+  /// No description provided for @flashlightCheckAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Check again'**
+  String get flashlightCheckAction;
+
+  /// No description provided for @flashlightLaterAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get flashlightLaterAction;
+
+  /// No description provided for @flashlightCancelAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel check'**
+  String get flashlightCancelAction;
+
+  /// No description provided for @flashlightChecking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking camera and flashlight…'**
+  String get flashlightChecking;
+
+  /// No description provided for @flashlightReady.
+  ///
+  /// In en, this message translates to:
+  /// **'This camera supports the flashlight. Ready to use.'**
+  String get flashlightReady;
+
+  /// No description provided for @flashlightUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Flashlight support has not been checked.'**
+  String get flashlightUnknown;
+
+  /// No description provided for @flashlightPermissionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow camera access to use the flashlight.'**
+  String get flashlightPermissionRequired;
+
+  /// No description provided for @flashlightPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access was denied. Allow Camera in your browser’s website settings, then check again.'**
+  String get flashlightPermissionDenied;
+
+  /// No description provided for @flashlightUnsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'This camera or browser does not support flashlight control. Other SOS features remain available.'**
+  String get flashlightUnsupported;
+
+  /// No description provided for @flashlightInsecure.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Guardian AI over HTTPS to allow camera access and use the flashlight.'**
+  String get flashlightInsecure;
+
+  /// No description provided for @flashlightCameraMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'No suitable camera was found on this device.'**
+  String get flashlightCameraMissing;
+
+  /// No description provided for @flashlightCameraBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera could not be opened. Close other apps using the camera and try again.'**
+  String get flashlightCameraBusy;
+
+  /// No description provided for @flashlightInterrupted.
+  ///
+  /// In en, this message translates to:
+  /// **'The flashlight stopped because the camera disconnected or you left the app. Turn it on to try again.'**
+  String get flashlightInterrupted;
+
+  /// No description provided for @flashlightTimedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera permission was not received. You can keep using the app and check again later.'**
+  String get flashlightTimedOut;
+
+  /// No description provided for @flashlightFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The flashlight could not be controlled. Please try again.'**
+  String get flashlightFailed;
+
+  /// No description provided for @flashlightPermissionNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera permission is managed by the browser on this device and may need to be granted again.'**
+  String get flashlightPermissionNote;
+
+  /// No description provided for @flashlightStopAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off flashlight'**
+  String get flashlightStopAction;
+
+  /// No description provided for @audioPreparing.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing audio recognition'**
+  String get audioPreparing;
+
+  /// No description provided for @audioLocalMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Recognition on this device'**
+  String get audioLocalMode;
+
+  /// No description provided for @audioServerMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Recognition through the server'**
+  String get audioServerMode;
+
+  /// No description provided for @audioWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for an audio window'**
+  String get audioWaiting;
+
+  /// No description provided for @audioAnalysisHealthy.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis is keeping up'**
+  String get audioAnalysisHealthy;
+
+  /// No description provided for @audioAnalysisDelayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis is delayed; some audio may be skipped'**
+  String get audioAnalysisDelayed;
+
+  /// No description provided for @audioAnalysisUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio analysis is unavailable'**
+  String get audioAnalysisUnavailable;
+
+  /// No description provided for @audioNetworkFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'The server connection is interrupted.'**
+  String get audioNetworkFailure;
+
+  /// No description provided for @audioAuthFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in again to reconnect to the server.'**
+  String get audioAuthFailure;
+
+  /// No description provided for @audioModelFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'The audio model is unavailable or could not run.'**
+  String get audioModelFailure;
+
+  /// No description provided for @audioStaleFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'The audio event expired or its Safety Check ended.'**
+  String get audioStaleFailure;
+
+  /// No description provided for @audioServerFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'The server could not process the request.'**
+  String get audioServerFailure;
+
+  /// No description provided for @audioMicrophoneActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone is recording'**
+  String get audioMicrophoneActive;
+
+  /// No description provided for @audioDeliveryRequiresNetwork.
+  ///
+  /// In en, this message translates to:
+  /// **'Sending an alert to the server requires a connection.'**
+  String get audioDeliveryRequiresNetwork;
+
+  /// No description provided for @audioAlertSending.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound detected. Sending the alert to the server…'**
+  String get audioAlertSending;
+
+  /// No description provided for @audioAlertRetrying.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound detected. Connection interrupted; retrying the alert…'**
+  String get audioAlertRetrying;
+
+  /// No description provided for @audioAlertAccepted.
+  ///
+  /// In en, this message translates to:
+  /// **'The server accepted the alert. Delivery to contacts is tracked separately.'**
+  String get audioAlertAccepted;
+
+  /// No description provided for @audioAlertFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The server has not acknowledged the alert.'**
+  String get audioAlertFailed;
+
+  /// No description provided for @audioAlertExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'The detected event expired before server acknowledgement.'**
+  String get audioAlertExpired;
+
+  /// No description provided for @audioRecipientsSent.
+  ///
+  /// In en, this message translates to:
+  /// **'The alert was delivered to all selected contacts.'**
+  String get audioRecipientsSent;
+
+  /// No description provided for @audioRecipientsMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no eligible contacts to receive this alert.'**
+  String get audioRecipientsMissing;
+
+  /// No description provided for @audioRecipientsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Some alert deliveries failed. Check SOS delivery status.'**
+  String get audioRecipientsFailed;
 }
 
 class _AppLocalizationsDelegate

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../shared/widgets/flashlight_setup_panel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/device/audio/emergency_audio_player.dart';
 import '../../../../core/device/flashlight/flashlight_controller.dart';
@@ -25,7 +26,6 @@ class QuickToolsBar extends ConsumerStatefulWidget {
 
 class _QuickToolsBarState extends ConsumerState<QuickToolsBar> {
   bool _isSirenOn = false;
-  bool _isStrobeOn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,8 @@ class _QuickToolsBarState extends ConsumerState<QuickToolsBar> {
     final l10n = context.l10n;
 
     final audioPlayer = ref.read(emergencyAudioPlayerProvider);
-    final flashlight = ref.read(flashlightControllerProvider);
+    final flashlight = ref.watch(flashlightControllerProvider);
+    final isStrobeOn = flashlight.isStrobeActive;
     final phoneDialer = ref.read(phoneDialerProvider);
 
     return Row(
@@ -75,29 +76,32 @@ class _QuickToolsBarState extends ConsumerState<QuickToolsBar> {
         // 2. Đèn chớp Strobe
         Expanded(
           child: AppCard(
-            backgroundColor: _isStrobeOn ? colors.warningLight : colors.surface,
-            borderColor: _isStrobeOn ? colors.warning : colors.border,
+            backgroundColor: isStrobeOn ? colors.warningLight : colors.surface,
+            borderColor: isStrobeOn ? colors.warning : colors.border,
             onTap: () async {
-              final active = await flashlight.toggleStrobe();
-              setState(() => _isStrobeOn = active);
+              await flashlight.toggleStrobe();
+              if (!context.mounted || flashlight.issue == null) return;
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(flashlightStatusMessage(context, flashlight))));
             },
             child: Column(
               children: [
                 Icon(
-                  _isStrobeOn
+                  isStrobeOn
                       ? Icons.flashlight_on_rounded
                       : Icons.flashlight_off_rounded,
-                  color: _isStrobeOn ? colors.warningDark : colors.warning,
+                  color: isStrobeOn ? colors.warningDark : colors.warning,
                   size: 28,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  _isStrobeOn
-                      ? context.l10n.strobeRunning
-                      : l10n.homeStrobeAction,
+                  flashlight.isBusy
+                      ? context.l10n.flashlightChecking
+                      : isStrobeOn
+                          ? context.l10n.strobeRunning
+                          : l10n.homeStrobeAction,
                   style: TextStyle(
-                    color:
-                        _isStrobeOn ? colors.warningDark : colors.textPrimary,
+                    color: isStrobeOn ? colors.warningDark : colors.textPrimary,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),

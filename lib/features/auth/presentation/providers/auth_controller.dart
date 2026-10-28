@@ -8,6 +8,7 @@
 library;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/device/flashlight/flashlight_controller.dart';
 import '../../../../core/device/audio/danger_audio_providers.dart';
 
 import '../../../contacts/presentation/providers/contacts_controller.dart';
@@ -286,6 +287,7 @@ class AuthController extends StateNotifier<AuthState> {
 
   /// Đăng xuất khỏi thiết bị
   Future<void> logout() async {
+    await _ref.read(flashlightControllerProvider).turnOff();
     await _ref.read(dangerAudioProvider.notifier).endLocalSession();
     await _repo.logout();
     _ref.invalidate(sosControllerProvider);

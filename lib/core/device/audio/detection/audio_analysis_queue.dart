@@ -7,9 +7,12 @@ import 'audio_analysis_input.dart';
 /// Capture windows independently of network latency. A scream arriving while
 /// another window is being classified must remain queued for classification.
 class AudioAnalysisQueue {
-  AudioAnalysisQueue({this.maxPending = 25});
+  AudioAnalysisQueue(
+      {this.maxPending = 4, this.maxAge = const Duration(seconds: 4)})
+      : assert(maxPending > 0);
 
   final int maxPending;
+  final Duration maxAge;
   final _buffer = RingBuffer(
     config: const RingBufferConfig(maxDurationSeconds: 2),
   );
@@ -17,10 +20,11 @@ class AudioAnalysisQueue {
   int _bytesUntilWindow = 64000;
   int _totalBytes = 0;
   int droppedWindows = 0;
+  int expiredWindows = 0;
 
   int get pendingCount => _pending.length;
 
-  void add(Uint8List pcm) {
+  void add(Uint8List pcm, {DateTime? capturedAt}) {
     var offset = 0;
     final end = pcm.length - pcm.length % 2;
     while (offset < end) {
@@ -33,7 +37,7 @@ class AudioAnalysisQueue {
       _bytesUntilWindow -= count;
       if (_bytesUntilWindow == 0) {
         final input = AudioAnalysisInput.fromPcm(_buffer.takeSnapshot(),
-            endSample: _totalBytes ~/ 2);
+            endSample: _totalBytes ~/ 2, capturedAt: capturedAt);
         if (input != null) {
           if (_pending.length == maxPending) {
             _pending.removeFirst();
@@ -46,8 +50,18 @@ class AudioAnalysisQueue {
     }
   }
 
-  AudioAnalysisInput? takeNext() =>
-      _pending.isEmpty ? null : _pending.removeFirst();
+  AudioAnalysisInput? takeNext({DateTime? now}) {
+    final time = now ?? DateTime.now();
+    while (_pending.isNotEmpty) {
+      final input = _pending.removeFirst();
+      if (time.difference(input.capturedAt) > maxAge) {
+        expiredWindows++;
+        continue;
+      }
+      return input;
+    }
+    return null;
+  }
 
   void clear() {
     _pending.clear();
@@ -55,5 +69,6 @@ class AudioAnalysisQueue {
     _bytesUntilWindow = 64000;
     _totalBytes = 0;
     droppedWindows = 0;
+    expiredWindows = 0;
   }
 }

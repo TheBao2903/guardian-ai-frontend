@@ -1342,4 +1342,154 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get authHidePassword => 'Ẩn mật khẩu';
+
+  @override
+  String get flashlightSetupTitle => 'Camera và đèn flash';
+
+  @override
+  String get flashlightSetupDescription =>
+      'Cho phép camera để dùng đèn flash khi khẩn cấp. Camera chỉ mở khi kiểm tra hoặc dùng đèn; hình ảnh không được ghi hay gửi đi.';
+
+  @override
+  String get flashlightGrantAction => 'Cấp quyền camera';
+
+  @override
+  String get flashlightCheckAction => 'Kiểm tra lại';
+
+  @override
+  String get flashlightLaterAction => 'Để sau';
+
+  @override
+  String get flashlightCancelAction => 'Hủy kiểm tra';
+
+  @override
+  String get flashlightChecking => 'Đang kiểm tra camera và đèn flash…';
+
+  @override
+  String get flashlightReady => 'Camera hỗ trợ đèn flash. Sẵn sàng sử dụng.';
+
+  @override
+  String get flashlightUnknown =>
+      'Chưa kiểm tra khả năng điều khiển đèn flash.';
+
+  @override
+  String get flashlightPermissionRequired =>
+      'Cần cấp quyền camera để dùng đèn flash.';
+
+  @override
+  String get flashlightPermissionDenied =>
+      'Quyền camera bị từ chối. Mở quyền Camera trong cài đặt của website trên trình duyệt, rồi kiểm tra lại.';
+
+  @override
+  String get flashlightUnsupported =>
+      'Camera hoặc trình duyệt này không hỗ trợ điều khiển đèn flash. Các chức năng SOS khác vẫn sử dụng được.';
+
+  @override
+  String get flashlightInsecure =>
+      'Mở Guardian AI bằng HTTPS để cấp quyền camera và sử dụng đèn flash.';
+
+  @override
+  String get flashlightCameraMissing =>
+      'Không tìm thấy camera phù hợp trên thiết bị.';
+
+  @override
+  String get flashlightCameraBusy =>
+      'Không mở được camera. Hãy đóng ứng dụng đang dùng camera rồi thử lại.';
+
+  @override
+  String get flashlightInterrupted =>
+      'Đèn đã dừng vì camera bị ngắt hoặc bạn đã rời ứng dụng. Nhấn bật đèn để thử lại.';
+
+  @override
+  String get flashlightTimedOut =>
+      'Chưa nhận được quyền camera. Bạn có thể tiếp tục sử dụng ứng dụng và kiểm tra lại sau.';
+
+  @override
+  String get flashlightFailed =>
+      'Không điều khiển được đèn flash. Vui lòng thử lại.';
+
+  @override
+  String get flashlightPermissionNote =>
+      'Quyền camera do trình duyệt quản lý trên thiết bị này và có thể cần cấp lại.';
+
+  @override
+  String get flashlightStopAction => 'Tắt đèn';
+
+  @override
+  String get audioPreparing => 'Đang chuẩn bị nhận diện âm thanh';
+
+  @override
+  String get audioLocalMode => 'Nhận diện trên thiết bị';
+
+  @override
+  String get audioServerMode => 'Nhận diện qua máy chủ';
+
+  @override
+  String get audioWaiting => 'Đang chờ đoạn âm thanh';
+
+  @override
+  String get audioAnalysisHealthy => 'Phân tích đang theo kịp âm thanh';
+
+  @override
+  String get audioAnalysisDelayed =>
+      'Phân tích đang trễ; có thể bỏ qua một phần âm thanh';
+
+  @override
+  String get audioAnalysisUnavailable => 'Phân tích âm thanh đang gián đoạn';
+
+  @override
+  String get audioNetworkFailure => 'Kết nối máy chủ đang gián đoạn.';
+
+  @override
+  String get audioAuthFailure => 'Đăng nhập lại để kết nối máy chủ.';
+
+  @override
+  String get audioModelFailure =>
+      'Mô hình âm thanh chưa sẵn sàng hoặc không chạy được.';
+
+  @override
+  String get audioStaleFailure =>
+      'Tín hiệu âm thanh đã quá hạn hoặc Safety Check đã kết thúc.';
+
+  @override
+  String get audioServerFailure => 'Máy chủ chưa xử lý được yêu cầu.';
+
+  @override
+  String get audioMicrophoneActive => 'Micro đang thu âm';
+
+  @override
+  String get audioDeliveryRequiresNetwork =>
+      'Gửi cảnh báo lên máy chủ cần có kết nối mạng.';
+
+  @override
+  String get audioAlertSending =>
+      'Đã phát hiện âm thanh. Đang gửi cảnh báo lên máy chủ…';
+
+  @override
+  String get audioAlertRetrying =>
+      'Đã phát hiện âm thanh. Kết nối gián đoạn; đang thử gửi lại cảnh báo…';
+
+  @override
+  String get audioAlertAccepted =>
+      'Máy chủ đã tiếp nhận cảnh báo. Trạng thái gửi đến người thân được theo dõi riêng.';
+
+  @override
+  String get audioAlertFailed =>
+      'Chưa nhận được xác nhận tiếp nhận cảnh báo từ máy chủ.';
+
+  @override
+  String get audioAlertExpired =>
+      'Tín hiệu đã quá hạn trước khi nhận được xác nhận từ máy chủ.';
+
+  @override
+  String get audioRecipientsSent =>
+      'Đã gửi cảnh báo đến tất cả người thân được chọn.';
+
+  @override
+  String get audioRecipientsMissing =>
+      'Chưa có người thân đủ điều kiện nhận cảnh báo này.';
+
+  @override
+  String get audioRecipientsFailed =>
+      'Một số lượt gửi cảnh báo thất bại. Kiểm tra trạng thái gửi SOS.';
 }

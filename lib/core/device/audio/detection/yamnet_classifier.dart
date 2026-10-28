@@ -4,7 +4,7 @@
 /// ROLE / RESPONSIBILITY:
 ///   - Tải và thực thi mô hình YAMNet TFLite trực tiếp trên thiết bị (On-device).
 ///   - Hỗ trợ đa nền tảng: Chạy Native TFLite trên Android/iOS/Desktop qua dart:io,
-///     và graceful fallback trên Web (Chrome) qua conditional import chống lỗi JS FFI.
+///     và ONNX/WASM trong Web Worker trên Web; backend là chế độ dự phòng.
 ///   - Nhận tín hiệu âm thanh PCM 16-bit 16kHz, tiền xử lý thành Float32 [-1.0, 1.0].
 ///   - Suy luận (Inference) và ánh xạ 521 nhãn AudioSet thành DangerEventType.
 ///   - Quản lý trạng thái Model (State Machine) và hỗ trợ Preload ngầm.

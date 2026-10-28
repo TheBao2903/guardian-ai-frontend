@@ -119,6 +119,7 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
   final Color disabledBg;
 
   Color get textTertiary => textSecondary.withValues(alpha: 0.7);
+  Color get textDisabled => disabled;
 
   const AppColorScheme({
     required this.primary,

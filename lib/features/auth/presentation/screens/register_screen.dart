@@ -162,7 +162,20 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         elevation: 0,
         backgroundColor: colors.background,
         title: Row(mainAxisSize: MainAxisSize.min, children: [
-          Icon(Icons.shield_rounded, color: colors.primaryDark, size: 24),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: Image.asset(
+              'assets/images/app_logo.webp',
+              width: 24,
+              height: 24,
+              fit: BoxFit.contain,
+              errorBuilder: (_, __, ___) => Icon(
+                Icons.shield_rounded,
+                color: colors.primaryDark,
+                size: 24,
+              ),
+            ),
+          ),
           const SizedBox(width: 8),
           Text('Guardian AI',
               style: TextStyle(

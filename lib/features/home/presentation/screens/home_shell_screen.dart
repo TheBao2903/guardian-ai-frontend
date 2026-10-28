@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/device/flashlight/flashlight_controller.dart';
+import '../../../../shared/widgets/flashlight_setup_panel.dart';
+import '../../../sos/presentation/providers/sos_controller.dart';
+import '../widgets/danger_alert_sheet.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../shared/extensions/context_extensions.dart';
 
@@ -13,7 +18,7 @@ import '../../../../shared/extensions/context_extensions.dart';
 ///   Bảo toàn state của các tab khi chuyển đổi, phẳng viền 1px chuẩn evondevKit.
 /// ============================================================================
 
-class HomeShellScreen extends StatelessWidget {
+class HomeShellScreen extends ConsumerWidget {
   final StatefulNavigationShell navigationShell;
 
   const HomeShellScreen({
@@ -29,12 +34,26 @@ class HomeShellScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colors;
     final l10n = context.l10n;
 
     return Scaffold(
-      body: navigationShell,
+      body: Column(children: [
+        if (ref.watch(flashlightControllerProvider).shouldOfferSetup &&
+            !ref.watch(sosControllerProvider).isSosActive &&
+            !ref.watch(dangerAlertProvider).isShowing)
+          SafeArea(
+              bottom: false,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.sizeOf(context).height * 0.42),
+                child: const SingleChildScrollView(
+                    padding: EdgeInsets.all(12),
+                    child: FlashlightSetupPanel(intro: true)),
+              )),
+        Expanded(child: navigationShell),
+      ]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: colors.surface,

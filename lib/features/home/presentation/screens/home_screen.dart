@@ -51,7 +51,27 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: colors.background,
       appBar: AppBar(
-        title: Text(l10n.homeGreeting),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(7),
+              child: Image.asset(
+                'assets/images/app_logo.webp',
+                width: 28,
+                height: 28,
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => Icon(
+                  Icons.shield_rounded,
+                  color: colors.primaryDark,
+                  size: 26,
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Text(l10n.homeGreeting),
+          ],
+        ),
         elevation: 0,
         backgroundColor: colors.background,
         centerTitle: false,

@@ -12,6 +12,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/storage_keys.dart';
+import '../../../../core/device/flashlight/flashlight_controller.dart';
 import '../../../../core/device/audio/danger_audio_providers.dart';
 import '../../../../core/device/location/location_service.dart';
 import '../../../../core/network/api_client.dart';
@@ -254,6 +255,9 @@ class SafetyCheckController extends StateNotifier<SafetyCheckState> {
             .read(dangerAudioProvider.notifier)
             .startMonitoring(safetyCheckInstanceId: instance.instanceId);
 
+        // Chủ động xin quyền Flashlight để sẵn sàng khi khẩn cấp
+        unawaited(_ref.read(flashlightControllerProvider).prepare(allowPermissionPrompt: true));
+
         return true;
       },
       error: (failure) {
@@ -297,7 +301,10 @@ class SafetyCheckController extends StateNotifier<SafetyCheckState> {
           ? active.copyWith(status: SafetyCheckStatus.escalated)
           : active,
     );
-    if (expired) _ticker?.cancel();
+    if (expired) {
+      _ticker?.cancel();
+      unawaited(_ref.read(sosControllerProvider.notifier).activateSos(triggerType: 'SAFETY_CHECK_ESCALATED'));
+    }
   }
 
   /// Người dùng bấm 'Tôi an toàn'
@@ -317,6 +324,7 @@ class SafetyCheckController extends StateNotifier<SafetyCheckState> {
         _ticker?.cancel();
         // Dừng Audio Shield khi user báo an toàn
         _ref.read(dangerAudioProvider.notifier).stopMonitoring();
+        unawaited(_ref.read(flashlightControllerProvider).turnOff());
         state = state.copyWith(
           isActionLoading: false,
           clearActiveInstance: true,
@@ -379,6 +387,7 @@ class SafetyCheckController extends StateNotifier<SafetyCheckState> {
         _ticker?.cancel();
         // Dừng Audio Shield khi hủy timer
         _ref.read(dangerAudioProvider.notifier).stopMonitoring();
+        unawaited(_ref.read(flashlightControllerProvider).turnOff());
         state = state.copyWith(
           isActionLoading: false,
           clearActiveInstance: true,

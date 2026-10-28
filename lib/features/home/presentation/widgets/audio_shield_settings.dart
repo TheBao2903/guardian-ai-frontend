@@ -5,6 +5,7 @@ import '../../../../core/device/audio/danger_audio_manager.dart';
 import '../../../../core/device/audio/danger_audio_providers.dart';
 import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/widgets/app_switch_tile.dart';
+import '../../../../shared/widgets/audio_protection_status.dart';
 
 /// ============================================================================
 /// FILE: audio_shield_settings.dart
@@ -50,6 +51,10 @@ class AudioShieldSettings extends ConsumerWidget {
 
           // Status
           _buildStatus(context, dangerState),
+          if (dangerState.isMonitoring) ...[
+            const SizedBox(height: 12),
+            AudioProtectionStatus(audio: dangerState),
+          ],
           const SizedBox(height: 16),
 
           // Toggle Button

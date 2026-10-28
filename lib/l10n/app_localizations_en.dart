@@ -1347,4 +1347,153 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get authHidePassword => 'Hide password';
+
+  @override
+  String get flashlightSetupTitle => 'Camera and flashlight';
+
+  @override
+  String get flashlightSetupDescription =>
+      'Allow camera access to use the emergency flashlight. The camera opens only for checks or flashlight use; images are not recorded or sent.';
+
+  @override
+  String get flashlightGrantAction => 'Allow camera';
+
+  @override
+  String get flashlightCheckAction => 'Check again';
+
+  @override
+  String get flashlightLaterAction => 'Later';
+
+  @override
+  String get flashlightCancelAction => 'Cancel check';
+
+  @override
+  String get flashlightChecking => 'Checking camera and flashlight…';
+
+  @override
+  String get flashlightReady =>
+      'This camera supports the flashlight. Ready to use.';
+
+  @override
+  String get flashlightUnknown => 'Flashlight support has not been checked.';
+
+  @override
+  String get flashlightPermissionRequired =>
+      'Allow camera access to use the flashlight.';
+
+  @override
+  String get flashlightPermissionDenied =>
+      'Camera access was denied. Allow Camera in your browser’s website settings, then check again.';
+
+  @override
+  String get flashlightUnsupported =>
+      'This camera or browser does not support flashlight control. Other SOS features remain available.';
+
+  @override
+  String get flashlightInsecure =>
+      'Open Guardian AI over HTTPS to allow camera access and use the flashlight.';
+
+  @override
+  String get flashlightCameraMissing =>
+      'No suitable camera was found on this device.';
+
+  @override
+  String get flashlightCameraBusy =>
+      'The camera could not be opened. Close other apps using the camera and try again.';
+
+  @override
+  String get flashlightInterrupted =>
+      'The flashlight stopped because the camera disconnected or you left the app. Turn it on to try again.';
+
+  @override
+  String get flashlightTimedOut =>
+      'Camera permission was not received. You can keep using the app and check again later.';
+
+  @override
+  String get flashlightFailed =>
+      'The flashlight could not be controlled. Please try again.';
+
+  @override
+  String get flashlightPermissionNote =>
+      'Camera permission is managed by the browser on this device and may need to be granted again.';
+
+  @override
+  String get flashlightStopAction => 'Turn off flashlight';
+
+  @override
+  String get audioPreparing => 'Preparing audio recognition';
+
+  @override
+  String get audioLocalMode => 'Recognition on this device';
+
+  @override
+  String get audioServerMode => 'Recognition through the server';
+
+  @override
+  String get audioWaiting => 'Waiting for an audio window';
+
+  @override
+  String get audioAnalysisHealthy => 'Analysis is keeping up';
+
+  @override
+  String get audioAnalysisDelayed =>
+      'Analysis is delayed; some audio may be skipped';
+
+  @override
+  String get audioAnalysisUnavailable => 'Audio analysis is unavailable';
+
+  @override
+  String get audioNetworkFailure => 'The server connection is interrupted.';
+
+  @override
+  String get audioAuthFailure => 'Sign in again to reconnect to the server.';
+
+  @override
+  String get audioModelFailure =>
+      'The audio model is unavailable or could not run.';
+
+  @override
+  String get audioStaleFailure =>
+      'The audio event expired or its Safety Check ended.';
+
+  @override
+  String get audioServerFailure => 'The server could not process the request.';
+
+  @override
+  String get audioMicrophoneActive => 'Microphone is recording';
+
+  @override
+  String get audioDeliveryRequiresNetwork =>
+      'Sending an alert to the server requires a connection.';
+
+  @override
+  String get audioAlertSending =>
+      'Sound detected. Sending the alert to the server…';
+
+  @override
+  String get audioAlertRetrying =>
+      'Sound detected. Connection interrupted; retrying the alert…';
+
+  @override
+  String get audioAlertAccepted =>
+      'The server accepted the alert. Delivery to contacts is tracked separately.';
+
+  @override
+  String get audioAlertFailed => 'The server has not acknowledged the alert.';
+
+  @override
+  String get audioAlertExpired =>
+      'The detected event expired before server acknowledgement.';
+
+  @override
+  String get audioRecipientsSent =>
+      'The alert was delivered to all selected contacts.';
+
+  @override
+  String get audioRecipientsMissing =>
+      'There are no eligible contacts to receive this alert.';
+
+  @override
+  String get audioRecipientsFailed =>
+      'Some alert deliveries failed. Check SOS delivery status.';
 }

@@ -13,6 +13,8 @@
 library;
 
 import 'package:flutter/material.dart';
+import '../../../../core/device/flashlight/flashlight_controller.dart';
+import '../../../../shared/widgets/flashlight_setup_panel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -49,6 +51,7 @@ class _ActiveSosScreenState extends ConsumerState<ActiveSosScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final flashlight = ref.watch(flashlightControllerProvider);
     final colors = context.colors;
     final l10n = context.l10n;
     final state = ref.watch(sosControllerProvider);
@@ -239,12 +242,12 @@ class _ActiveSosScreenState extends ConsumerState<ActiveSosScreen> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         decoration: BoxDecoration(
-                          color: state.isStrobeActive
+                          color: flashlight.isStrobeActive
                               ? Colors.white.withOpacity(0.2)
                               : Colors.white.withOpacity(0.08),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: state.isStrobeActive
+                            color: flashlight.isStrobeActive
                                 ? Colors.white
                                 : Colors.white24,
                           ),
@@ -253,7 +256,7 @@ class _ActiveSosScreenState extends ConsumerState<ActiveSosScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              state.isStrobeActive
+                              flashlight.isStrobeActive
                                   ? Icons.flash_on_rounded
                                   : Icons.flash_off_rounded,
                               color: Colors.white,
@@ -261,7 +264,7 @@ class _ActiveSosScreenState extends ConsumerState<ActiveSosScreen> {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              state.isStrobeActive
+                              flashlight.isStrobeActive
                                   ? context.l10n.strobeOffAction
                                   : context.l10n.strobeOnAction,
                               style: const TextStyle(
@@ -278,6 +281,15 @@ class _ActiveSosScreenState extends ConsumerState<ActiveSosScreen> {
                 ],
               ),
 
+              if (flashlight.issue != null || flashlight.isBusy)
+                Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Semantics(
+                        liveRegion: true,
+                        child: Text(
+                            flashlightStatusMessage(context, flashlight),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 12)))),
               const Spacer(),
 
               // Priority #1 Contact - Large Card

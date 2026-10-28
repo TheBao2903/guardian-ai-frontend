@@ -15,8 +15,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../shared/extensions/context_extensions.dart';
 import '../../../../shared/extensions/localized_domain_labels.dart';
 import '../../../../core/device/audio/danger_audio_providers.dart';
+import '../../../../core/device/flashlight/flashlight_controller.dart';
+import '../../../../shared/widgets/flashlight_setup_panel.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
+import '../../../../shared/widgets/audio_protection_status.dart';
 import '../providers/safety_check_controller.dart';
 import '../providers/safety_check_state.dart';
 
@@ -63,14 +66,8 @@ class ActiveCountdownView extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const SizedBox(height: 12),
-        if (audio.error != null || !audio.isMonitoring)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Text(
-              audio.error ?? context.l10n.safetyMicrophoneUnavailable,
-              style: TextStyle(color: colors.warningDark),
-            ),
-          ),
+        AudioProtectionStatus(audio: audio),
+        const SizedBox(height: 12),
 
         // Thẻ thông tin phiên
         AppCard(
@@ -188,6 +185,79 @@ class ActiveCountdownView extends ConsumerWidget {
         ),
 
         const SizedBox(height: 36),
+
+                // Tiện ích Đèn pin an toàn trong lúc đếm ngược
+        Consumer(
+          builder: (context, ref, _) {
+            final flashlight = ref.watch(flashlightControllerProvider);
+            final isTorchOn = flashlight.isTorchOn;
+            return Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: isTorchOn ? colors.warningLight : colors.surface,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: isTorchOn ? colors.warning : colors.border,
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    isTorchOn
+                        ? Icons.flashlight_on_rounded
+                        : Icons.flashlight_off_rounded,
+                    color: isTorchOn ? colors.warningDark : colors.textSecondary,
+                    size: 24,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Đèn pin an toàn',
+                          style: TextStyle(
+                            color: isTorchOn
+                                ? colors.warningDark
+                                : colors.textPrimary,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          flashlight.isBusy
+                              ? 'Đang kết nối camera & đèn...'
+                              : isTorchOn
+                                  ? 'Đang bật đèn soi đường'
+                                  : 'Bật đèn flash khi đi lại ban đêm',
+                          style: TextStyle(
+                            color: colors.textSecondary,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Switch.adaptive(
+                    value: isTorchOn,
+                    activeColor: colors.warning,
+                    onChanged: (val) async {
+                      await flashlight.toggleTorch();
+                      if (context.mounted && flashlight.issue != null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(flashlightStatusMessage(context, flashlight)),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
 
         // Nút chính: 'Tôi an toàn'
         AppButton(

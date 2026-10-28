@@ -9,6 +9,7 @@
 /// ============================================================================
 
 import 'package:flutter/material.dart';
+import '../../../../shared/widgets/flashlight_setup_panel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -971,6 +972,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
           const SizedBox(height: 14),
 
+          const FlashlightSetupPanel(),
+          const SizedBox(height: 14),
+
           // 4. Thẻ Giao diện ứng dụng (Chỉ Sáng / Tối, mặc định Sáng)
           AppCard(
             child: Column(
@@ -1086,6 +1090,43 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           ),
 
           const SizedBox(height: 24),
+
+          // 6. Nhận diện thương hiệu & Phiên bản ứng dụng
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'assets/images/app_logo.webp',
+                    width: 36,
+                    height: 36,
+                    fit: BoxFit.contain,
+                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Guardian AI v1.0.0',
+                  style: TextStyle(
+                    color: colors.textSecondary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'Hệ sinh thái An toàn Cá nhân & Cứu trợ Khẩn cấp',
+                  style: TextStyle(
+                    color: colors.disabled,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 32),
         ],
       ),
     );
