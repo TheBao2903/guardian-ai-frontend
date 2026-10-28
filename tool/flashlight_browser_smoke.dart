@@ -78,10 +78,14 @@ Future<void> main() async {
       check(count('flashMock.stops') == 1, 'release');
     });
     await run('unsupported torch releases camera', (backend) async {
+      CameraAccess? observed;
+      backend.onPermissionChanged = (access) => observed = access;
       js('flashMock.support = false');
       await rejects(backend.open(allowPermissionPrompt: true),
           FlashlightIssue.unsupported);
       check(count('flashMock.stops') == 1, 'release unsupported');
+      check(observed == CameraAccess.granted,
+          'camera grant must be reported even without torch');
     });
     await run('automatic SOS does not prompt', (backend) async {
       js("flashMock.permission = 'prompt'");

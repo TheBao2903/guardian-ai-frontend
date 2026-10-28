@@ -255,8 +255,8 @@ class SafetyCheckController extends StateNotifier<SafetyCheckState> {
             .read(dangerAudioProvider.notifier)
             .startMonitoring(safetyCheckInstanceId: instance.instanceId);
 
-        // Chủ động xin quyền Flashlight để sẵn sàng khi khẩn cấp
-        unawaited(_ref.read(flashlightControllerProvider).prepare(allowPermissionPrompt: true));
+        // Starting a timer must not open the camera or trigger another prompt.
+        unawaited(_ref.read(flashlightControllerProvider).refreshPermission());
 
         return true;
       },

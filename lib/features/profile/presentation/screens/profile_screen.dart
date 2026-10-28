@@ -44,6 +44,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
   // Trạng thái định vị khẩn cấp & thiết bị tin cậy
   bool _isAuthorizingLocation = false;
+  bool _isSavingLocation = false;
   ({
     double latitude,
     double longitude,
@@ -71,19 +72,30 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     UserEntity user,
     AuthController authController,
   ) async {
+    if (_isAuthorizingLocation || _isSavingLocation) return;
     setState(() {
       _isAuthorizingLocation = true;
     });
 
     final locService = ref.read(locationServiceProvider);
     final pos = await locService.authorizeAndGetCurrentLocation();
-    final devInfo =
-        await ref.read(deviceInfoServiceProvider).getDeviceSummary();
+    if (!mounted || !context.mounted) return;
 
     if (pos != null) {
       final lat = pos.latitude;
       final lng = pos.longitude;
       final acc = pos.accuracy;
+      // Show the fix immediately; device registration can take longer on a
+      // slow connection and must not hide coordinates already acquired.
+      setState(() {
+        _isAuthorizingLocation = false;
+        _isSavingLocation = true;
+        _currentLocationPreview =
+            (latitude: lat, longitude: lng, accuracy: acc);
+      });
+      final devInfo = _deviceSummary ??
+          await ref.read(deviceInfoServiceProvider).getDeviceSummary();
+      if (!mounted || !context.mounted) return;
       final isApprox = acc >= 1000.0;
       final addr = isApprox
           ? context.l10n.locationNetworkLabel(
@@ -92,7 +104,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               '${lat.toStringAsFixed(5)}, ${lng.toStringAsFixed(5)}',
               acc.round().toString());
 
-      await authController.updateDeviceLocation(
+      final saved = await authController.updateDeviceLocation(
         deviceName: devInfo.deviceName,
         platform: devInfo.platform,
         osVersion: devInfo.osVersion,
@@ -103,28 +115,31 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         address: addr,
       );
 
-      if (!mounted) return;
+      if (!mounted || !context.mounted) return;
       final colors = context.colors;
       final scaffoldMessenger = ScaffoldMessenger.of(context);
       setState(() {
         _isAuthorizingLocation = false;
+        _isSavingLocation = false;
         _currentLocationPreview =
             (latitude: lat, longitude: lng, accuracy: acc);
       });
       scaffoldMessenger.showSnackBar(
         SnackBar(
-          backgroundColor: colors.primaryDark,
+          backgroundColor: saved ? colors.primaryDark : colors.dangerDark,
           content: Text(
-            isApprox
-                ? context.l10n.locationNetworkSuccess(devInfo.deviceName)
-                : context.l10n.locationGpsSuccess(devInfo.deviceName),
+            !saved
+                ? context.l10n.errorNetwork
+                : isApprox
+                    ? context.l10n.locationNetworkSuccess(devInfo.deviceName)
+                    : context.l10n.locationGpsSuccess(devInfo.deviceName),
             style:
                 TextStyle(fontWeight: FontWeight.w600, color: colors.onPrimary),
           ),
         ),
       );
     } else {
-      if (!mounted) return;
+      if (!mounted || !context.mounted) return;
       final colors = context.colors;
       final scaffoldMessenger = ScaffoldMessenger.of(context);
       setState(() {
@@ -2671,6 +2686,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 : AppButtonVariant.primary,
             height: 44,
             isLoading: _isAuthorizingLocation,
+            enabled: !_isSavingLocation,
             onPressed: () =>
                 _handleAuthorizeLocation(context, user, authController),
           ),

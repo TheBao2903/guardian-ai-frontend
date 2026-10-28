@@ -179,6 +179,9 @@ class _WebFlashlightBackend extends FlashlightBackend {
       throw const FlashlightException(FlashlightIssue.cameraMissing);
     }
     _track = tracks.first;
+    // A successful camera grant also completes setup on devices without a
+    // torch. Unsupported hardware must not lead to a repeated permission intro.
+    onPermissionChanged?.call(CameraAccess.granted);
   }
 
   @override

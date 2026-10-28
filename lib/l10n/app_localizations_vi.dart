@@ -1410,7 +1410,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get flashlightPermissionNote =>
-      'Quyền camera do trình duyệt quản lý trên thiết bị này và có thể cần cấp lại.';
+      'Để tránh hỏi lại, hãy chọn Cho phép mỗi lần truy cập hoặc đặt quyền Camera của trang web thành Cho phép trong trình duyệt. Nếu chọn Chỉ lần này, trình duyệt có thể hỏi lại khi bạn bật đèn ở lần truy cập sau.';
 
   @override
   String get flashlightStopAction => 'Tắt đèn';

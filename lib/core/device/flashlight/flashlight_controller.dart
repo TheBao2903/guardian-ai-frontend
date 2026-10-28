@@ -21,7 +21,9 @@ class FlashlightController extends ChangeNotifier {
     _backend.onPermissionChanged = (access) {
       if (_disposed) return;
       cameraAccess = access;
-      if (access != CameraAccess.granted) {
+      if (access == CameraAccess.granted) {
+        unawaited(dismissIntro());
+      } else {
         support = FlashlightSupport.unknown;
         issue = access == CameraAccess.denied
             ? FlashlightIssue.permissionDenied
@@ -55,10 +57,7 @@ class FlashlightController extends ChangeNotifier {
   bool get isTorchOn => _isTorchOn;
   bool get isStrobeActive => _isStrobeActive;
   bool get shouldOfferSetup =>
-      !introDismissed &&
-      (cameraAccess != CameraAccess.granted ||
-          isBusy ||
-          support != FlashlightSupport.supported);
+      !introDismissed && cameraAccess != CameraAccess.granted;
 
   void _emit() {
     if (!_disposed) notifyListeners();
@@ -90,22 +89,37 @@ class FlashlightController extends ChangeNotifier {
     }
     _emit();
     if (userId == null) return;
-    final prefs = await SharedPreferences.getInstance();
+    var dismissed = false;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      dismissed = prefs.getBool(_dismissedKey) ?? false;
+    } catch (error) {
+      debugPrint('Flashlight preferences unavailable: ${error.runtimeType}');
+    }
     if (!_current(generation) || _session != userId) return;
-    introDismissed = prefs.getBool(_dismissedKey) ?? false;
-    cameraAccess = await _backend.permission();
+    introDismissed = dismissed;
+    final access = await _backend.permission();
     if (!_current(generation) || _session != userId) return;
+    cameraAccess = access;
     _emit();
     if (cameraAccess == CameraAccess.granted) {
-      await prepare(allowPermissionPrompt: false);
+      // Restoring login must never acquire a camera just to probe its torch.
+      // Permission queries are passive; actual support is checked when used.
+      await dismissIntro();
     }
   }
 
   Future<void> dismissIntro() async {
+    if (_disposed) return;
     introDismissed = true;
     _emit();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_dismissedKey, true);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_dismissedKey, true);
+    } catch (error) {
+      // Storage may be unavailable in private/restricted browser contexts.
+      debugPrint('Flashlight preferences unavailable: ${error.runtimeType}');
+    }
   }
 
   Future<void> refreshPermission() async {
@@ -165,7 +179,7 @@ class FlashlightController extends ChangeNotifier {
           await _backend.close();
           return;
         }
-        if (isWeb) cameraAccess = CameraAccess.granted;
+        cameraAccess = CameraAccess.granted;
         support = FlashlightSupport.supported;
         if (probeOnly) {
           await _backend.close();
@@ -180,6 +194,7 @@ class FlashlightController extends ChangeNotifier {
           if (strobe) _schedulePulse(generation, interval);
         }
         success = true;
+        unawaited(dismissIntro());
       } catch (error) {
         await _closeSafely();
         if (_current(generation)) {

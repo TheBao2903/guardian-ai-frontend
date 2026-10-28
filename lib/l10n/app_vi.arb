@@ -641,7 +641,7 @@
   "flashlightInterrupted": "Đèn đã dừng vì camera bị ngắt hoặc bạn đã rời ứng dụng. Nhấn bật đèn để thử lại.",
   "flashlightTimedOut": "Chưa nhận được quyền camera. Bạn có thể tiếp tục sử dụng ứng dụng và kiểm tra lại sau.",
   "flashlightFailed": "Không điều khiển được đèn flash. Vui lòng thử lại.",
-  "flashlightPermissionNote": "Quyền camera do trình duyệt quản lý trên thiết bị này và có thể cần cấp lại.",
+  "flashlightPermissionNote": "Để tránh hỏi lại, hãy chọn Cho phép mỗi lần truy cập hoặc đặt quyền Camera của trang web thành Cho phép trong trình duyệt. Nếu chọn Chỉ lần này, trình duyệt có thể hỏi lại khi bạn bật đèn ở lần truy cập sau.",
   "flashlightStopAction": "Tắt đèn",
   "audioPreparing": "Đang chuẩn bị nhận diện âm thanh",
   "audioLocalMode": "Nhận diện trên thiết bị",

@@ -190,13 +190,16 @@ void main() {
     expect(backend.prompts, isEmpty);
   });
 
-  test('login probes an existing grant and logout closes active hardware',
+  test(
+      'login checks existing grant without opening camera; logout closes light',
       () async {
     final backend = FakeFlashlightBackend()..access = CameraAccess.granted;
     final light = FlashlightController(backend: backend);
     addTearDown(light.dispose);
     await light.beginSession('user');
-    expect(backend.prompts, [false]);
+    expect(backend.prompts, isEmpty);
+    expect(light.cameraAccess, CameraAccess.granted);
+    expect(light.shouldOfferSetup, isFalse);
     expect(backend.writes, isEmpty);
     await light.startStrobe();
     await light.beginSession(null);
@@ -240,5 +243,88 @@ void main() {
     expect(light.cameraAccess, CameraAccess.denied);
     expect(light.support, FlashlightSupport.unknown);
     expect(backend.prompts, [true]);
+  });
+
+  test('successful setup survives reload without assuming permission is saved',
+      () async {
+    final firstBackend = FakeFlashlightBackend();
+    final first = FlashlightController(backend: firstBackend);
+    await first.beginSession('user');
+    expect(first.shouldOfferSetup, isTrue);
+    expect(await first.prepare(), isTrue);
+    await flush();
+    expect(first.shouldOfferSetup, isFalse);
+    first.dispose();
+
+    // A one-time browser grant has expired on the next visit. Remember only
+    // onboarding completion; do not claim that camera access is still granted.
+    final nextBackend = FakeFlashlightBackend();
+    final next = FlashlightController(backend: nextBackend);
+    addTearDown(next.dispose);
+    await next.beginSession('user');
+    expect(next.introDismissed, isTrue);
+    expect(next.shouldOfferSetup, isFalse);
+    expect(next.cameraAccess, CameraAccess.prompt);
+    expect(nextBackend.prompts, isEmpty);
+    await next.startStrobe(allowPermissionPrompt: false);
+    expect(next.isStrobeActive, isFalse);
+    expect(next.issue, FlashlightIssue.permissionRequired);
+    expect(nextBackend.prompts, [false]);
+  });
+
+  test('restored permission hides intro without requiring torch support probe',
+      () async {
+    final backend = FakeFlashlightBackend()..access = CameraAccess.granted;
+    final light = FlashlightController(backend: backend);
+    addTearDown(light.dispose);
+    await light.beginSession('user');
+    expect(light.shouldOfferSetup, isFalse);
+    expect(light.support, FlashlightSupport.unknown);
+    expect(backend.opened, isFalse);
+    expect(backend.prompts, isEmpty);
+    expect(backend.closes, 0);
+  });
+
+  test('native success reports granted and remembers completed setup',
+      () async {
+    final backend = FakeFlashlightBackend()..web = false;
+    final light = FlashlightController(backend: backend);
+    addTearDown(light.dispose);
+    await light.beginSession('user');
+    expect(await light.prepare(), isTrue);
+    expect(light.cameraAccess, CameraAccess.granted);
+    expect(light.introDismissed, isTrue);
+    expect(light.shouldOfferSetup, isFalse);
+  });
+
+  test('camera grant completes intro even if the device has no torch',
+      () async {
+    final backend = FakeFlashlightBackend()
+      ..access = CameraAccess.granted
+      ..openError = FlashlightIssue.unsupported;
+    final light = FlashlightController(backend: backend);
+    addTearDown(light.dispose);
+    await light.beginSession('user');
+    backend.onPermissionChanged!(CameraAccess.granted);
+    expect(await light.prepare(), isFalse);
+    expect(light.support, FlashlightSupport.unsupported);
+    expect(light.introDismissed, isTrue);
+    expect(light.shouldOfferSetup, isFalse);
+    expect(light.isTorchOn, isFalse);
+  });
+
+  test(
+      'revoked grant is checked without opening camera or repeating onboarding',
+      () async {
+    final backend = FakeFlashlightBackend()..access = CameraAccess.granted;
+    final light = FlashlightController(backend: backend);
+    addTearDown(light.dispose);
+    await light.beginSession('user');
+    backend.access = CameraAccess.denied;
+    await light.refreshPermission();
+    expect(light.cameraAccess, CameraAccess.denied);
+    expect(light.shouldOfferSetup, isFalse);
+    expect(backend.prompts, isEmpty);
+    expect(light.isTorchOn, isFalse);
   });
 }

@@ -691,7 +691,7 @@
   "flashlightInterrupted": "The flashlight stopped because the camera disconnected or you left the app. Turn it on to try again.",
   "flashlightTimedOut": "Camera permission was not received. You can keep using the app and check again later.",
   "flashlightFailed": "The flashlight could not be controlled. Please try again.",
-  "flashlightPermissionNote": "Camera permission is managed by the browser on this device and may need to be granted again.",
+  "flashlightPermissionNote": "To avoid repeated prompts, choose Allow on every visit or set this site's Camera permission to Allow in your browser. If you choose Allow this time, the browser may ask again when you use the flashlight on a later visit.",
   "flashlightStopAction": "Turn off flashlight",
   "audioPreparing": "Preparing audio recognition",
   "audioLocalMode": "Recognition on this device",

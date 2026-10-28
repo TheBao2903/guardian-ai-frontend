@@ -1415,7 +1415,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get flashlightPermissionNote =>
-      'Camera permission is managed by the browser on this device and may need to be granted again.';
+      'To avoid repeated prompts, choose Allow on every visit or set this site\'s Camera permission to Allow in your browser. If you choose Allow this time, the browser may ask again when you use the flashlight on a later visit.';
 
   @override
   String get flashlightStopAction => 'Turn off flashlight';
